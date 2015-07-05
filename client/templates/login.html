@@ -1,0 +1,41 @@
+---
+name: login
+url: /login
+controller: LoginController
+---
+<div class="grid-block">
+<div class="grid-container">
+<!-- <button ng-click="Login('testing')">testing</button> -->
+  <form>
+    <label></label>
+      <input 
+        type="text" 
+        name="username" 
+        id="username" 
+        ng-model="username"
+        placeholder="USERNAME"
+        required>
+    
+  <!-- <div class="grid-block"> -->
+  <!-- <div class="small-12 medium-6 grid-content"> -->
+    <label></label>
+      <input 
+        type="password"
+        name="password"
+        id="password"
+        ng-model="password"
+        placeholder="PASSWORD"
+        required>
+    
+  <!-- </div> -->
+    <div class="grid-block">
+    <a class="button" ng-click="Login('uuuu', 'xxxx')">LOGIN</a>
+    </div>
+    <div class="grid-block">
+    <a class="button" ui-sref="test">REGISTER AS A NEW USER</a>
+    </div>
+  <!-- </div> -->
+  <div>{{showstatus}}</div>
+  </form>
+</div>
+</div>
