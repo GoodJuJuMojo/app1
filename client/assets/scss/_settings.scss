@@ -97,7 +97,7 @@
 // $body-font-style: normal;
 // $body-antialiased: true;
 
-// Application Colors
+// Application Colors #e7d200
 // $primary-color: #00558b;
 // $secondary-color: #f1f1f1;
 // $alert-color: #F04124;
@@ -108,6 +108,13 @@
 // $gray: #dfdfdf;
 // $gray-dark: darken($gray, 8);
 // $gray-light: lighten($gray, 8);
+$turquoise: #5bc5bf;
+$turquoise-dark: #1d8495;
+$cream: #f9ecd1;
+$yellow:  #e7d200;
+$yellow-light: #f9ecd1;
+$brown: #552436;
+$grey: #e6e6e6;
 
 // We use these to make sure border radius matches unless we want it different.
 // $global-radius: 4px;
@@ -425,15 +432,34 @@
 
 // $menubar-fontsize: 1rem;
 // $menubar-background: #fff;
+$menubar-background: #e6e6e6;
 // $menubar-background-hover: smartscale($menubar-background, 7%);
 // $menubar-background-active: $menubar-background-hover;
 // $menubar-color: isitlight($menubar-background);
+$menubar-color: isitlight($menubar-background);
 // $menubar-color-hover: $menubar-color;
 // $menubar-color-active: $menubar-color-hover;
 
 // $menubar-item-padding: $global-padding;
 // $menubar-icon-size: 25px;
-// $menubar-icon-spacing: $menubar-item-padding; 
+// $menubar-icon-spacing: $menubar-item-padding;
+
+// 16.1 Menu Bar 2
+// - - - - - - - - - - - - - - -
+
+// $menubar2-fontsize: 1rem;
+// $menubar2-background: #fff;
+$menubar2-background: #e6e6e6;
+// $menubar2-background-hover: smartscale($menubar2-background, 7%);
+// $menubar2-background-active: $menubar2-background-hover;
+// $menubar2-color: isitlight($menubar2-background);
+$menubar2-color: isitlight($menubar2-background);
+// $menubar2-color-hover: $menubar2-color;
+// $menubar2-color-active: $menubar2-color-hover;
+
+// $menubar2-item-padding: $global-padding;
+// $menubar2-icon-size: 25px;
+// $menubar2-icon-spacing: $menubar2-item-padding; 
 
 // 17. Modal
 // - - - - - - - - - - - - - - -
@@ -551,10 +577,11 @@
 // - - - - - - - - - - - - - - -
 
 // $panel-size-horizontal: 300px;
+$panel-size-horizontal: 150px;
 // $panel-size-vertical: 300px;
 // $panel-padding: 0;
 
-// $panel-background: #fff;
+$panel-background: $turquoise-dark;
 // $panel-shadow: 3px 0 10px rgba(black, 0.25);
 
 // DEPRECATED: these variables will be removed in a future version.

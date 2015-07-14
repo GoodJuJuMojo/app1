@@ -1,2 +1,137 @@
 @import "settings";
 @import "foundation";
+@import "font-awesome";
+
+/*@font-face {
+	font-family: "yellowsun";
+	src: url('../fonts/dk-lemon-yellow-sun.otf') ;
+}
+*/
+/*
+@font-face {
+	font-family: "moonflower";
+	src: url('../fonts/moonflower-bold.ttf') ;
+}
+*/
+
+@font-face {
+	font-family: "frente";
+	src: url('../fonts/frenteh1-regular.otf') ;
+}
+body {
+	background:$grey;
+	font-family: "frente";
+}
+.menu-bar.primary {
+	background:$grey;
+}
+
+#settings-panel ul {
+	color: #f9ecd1;
+	list-style-type: none;
+	line-height: 300%;
+}
+
+#settings-header{
+	color: $turquoise;
+	margin: 20px;
+	padding-top: 40px;
+}
+
+#settings-panel a {
+	color: #f9ecd1;
+}
+
+.pca {
+	color: $yellow-light;
+	background: #0071b5;
+	align-items: center;
+	justify-content: center;
+	display: inline-flex;
+	border-radius: 1000px;
+	font-size: 1.5em;
+	width: 2.0rem;
+	height: 2.0rem;
+	border: 1px solid $yellow;
+	margin: 7px;
+}
+.pcb {
+	color: $yellow-light;
+	background: #ff1791;
+	align-items: center;
+	justify-content: center;
+	display: inline-flex;
+	border-radius: 1000px;
+	font-size: 1.5em;
+	width: 2.0rem;
+	height: 2.0rem;
+	border: 1px solid $yellow;
+	margin: 7px;
+}
+.pcc {
+	color: $yellow-light;
+	background: #6dc065;
+	align-items: center;
+	justify-content: center;
+	display: inline-flex;
+	border-radius: 1000px;
+	font-size: 1.5em;
+	width: 2.0rem;
+	height: 2.0rem;
+	border: 1px solid $yellow;
+	margin: 7px;
+}
+.tc-days {
+	color: $yellow-light;
+	background: $turquoise;
+	border-width: 1px;
+	border-bottom-style: solid;
+	list-style: none;
+	height: 3.0rem;
+}
+
+.tc-days a {
+	color: $yellow-light;
+	padding: 8px;
+}
+
+.tc-weeks {
+	color: $yellow-light;
+	background: $yellow;
+	border-width: 1px;
+	border-bottom-style: solid;
+	list-style: none;
+	height: 3.0rem;
+	margin: 0;
+}
+
+.tc-weeks li {
+	display: inline-flex;
+	color: $brown;
+	padding: 6px;
+}
+
+
+
+li.tc-schoolday {
+	color: $yellow-light;
+}
+
+.tc-today {
+	background: $turquoise-dark;
+}
+
+.tc-weeks .tc-today {
+	background: $yellow;
+	color: $turquoise-dark;
+}
+
+.tc-screen {
+	
+}
+
+.tc-icon {
+	color: $turquoise-dark;
+	font-size: 2.5em;
+}
+

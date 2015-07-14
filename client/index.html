@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Foundation for Apps</title>
+    <title>TCHALK</title>
     <link href="assets/css/app.css" rel="stylesheet" type="text/css">
     <script src="assets/js/foundation.js"></script>
     <script src="assets/js/templates.js"></script>
@@ -11,20 +11,45 @@
     <script src="assets/js/app.js"></script>
   </head>
   <body>
-    <div class="grid-frame vertical">
+    <div class="grid-frame vertical tc-screen">
 
       <div class="grid-content shrink" style="padding: 0;">
-        <ul class="primary condense menu-bar">
-          <li><a ui-sref="calendar"><img zf-iconic="" icon="home" size="small"></a></li>
-          <li><a><strong>TCHALK</strong></a></li>
-          <li><a ui-sref="home"><strong>Home</strong></a></li>
-          <li><a ui-sref="login"><strong>Login</strong></a></li>
-          <li><a ui-sref="test"><strong>Test</strong></a></li>
-          <li><a ui-sref="settings"><img zf-iconic="" icon="cog" size="small"></a></li>
-        </ul>
+            <ul class="primary  menu-bar">
+              <li><a ui-sref="calendar2" class="float-left"><i class="tc-icon fa fa-calendar-o"></i></a></li>
+              <img src="assets/img/tchalk_logo_3col_new_png24.png">
+              <!-- <li><a ui-sref="home"><strong>Home</strong></a></li> -->
+              <!-- <li><a ui-sref="login"><strong>Login</strong></a></li> -->
+              <!-- <li><a ui-sref="test"><strong>Test</strong></a></li> -->
+              <li><a  class="float-right" zf-open="settings-panel"><i class="tc-icon fa fa-cog"></i></a></li>
+            </ul>
+
+        <div zf-panel="" id="settings-panel" position="right">
+            <a zf-close="" class="close-button">x</a>
+            <p></p>
+            <p id="settings-header">SETTINGS</p>
+            </ul>
+            <ul>
+              <li><a>MY ACCOUNT</a></li>
+              <li><a>DEMOS</a></li>
+              <li><a>FAQ</a></li>
+              <li><a>FEEDBACK</a></li>
+              <li><a>ABOUT US</a></li>
+            </ul>
+            
+          </div>
+
+
+
       </div>
 
-      <div ui-view class="grid-content">
+      <div ui-view class="grid-content" style="padding: 0;">
+      </div>
+
+      <div class="grid-content shrink clearfix" style="padding: 0;">
+        <ul class="primary  menu-bar">
+          <li><a class="float-left" ui-sref="calendar2"><img src="assets/img/tchalk_kids_button.png"></a></li>
+          <li><a class="float-right" ui-sref="calendar2"><i class="tc-icon fa fa-comments"></i></a></li>
+        </ul>
       </div>
 
     </div><!-- /grid-frame -->
