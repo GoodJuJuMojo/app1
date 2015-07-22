@@ -3,39 +3,103 @@ name: login
 url: /login
 controller: LoginController
 ---
-<div class="grid-block">
-<div class="grid-container">
-<!-- <button ng-click="Login('testing')">testing</button> -->
-  <form>
-    <label></label>
-      <input 
-        type="text" 
-        name="username" 
-        id="username" 
-        ng-model="username"
-        placeholder="USERNAME"
-        required>
-    
-  <!-- <div class="grid-block"> -->
-  <!-- <div class="small-12 medium-6 grid-content"> -->
-    <label></label>
-      <input 
-        type="password"
-        name="password"
-        id="password"
-        ng-model="password"
-        placeholder="PASSWORD"
-        required>
-    
-  <!-- </div> -->
-    <div class="grid-block">
-    <a class="button" ng-click="Login('uuuu', 'xxxx')">LOGIN</a>
+
+<div zf-tabs="">
+
+  <div zf-tab="" title="LOGIN">
+
+    <div class="vertical grid-block small-up-1">
+
+      <div class="grid-container">    
+        <form>
+          <label></label>
+          <input 
+            type="text" 
+            name="username" 
+            id="username" 
+            ng-model="username"
+            placeholder="USERNAME"
+            required>    
+           <label></label>
+          <input 
+            type="password"
+            name="password"
+            id="password"
+            ng-model="password"
+            placeholder="PASSWORD"
+            required>
+
+        </form>
+
+      </div>
+
+      <a class="button" ui-sref="calendar" ng-click="$parent.Login()">LOGIN</a>        
+      
     </div>
-    <div class="grid-block">
-    <a class="button" ui-sref="register">REGISTER AS A NEW USER</a>
+
+  </div>
+    
+  <div zf-tab="" title="REGISTER">
+
+    <div class="vertical grid-block small-up-1">
+
+      <div class="grid-container">
+
+        <form>
+          <label></label>
+          <input 
+            type="text" 
+            name="name" 
+            id="name" 
+            ng-model="name"
+            placeholder="NAME"
+            required>
+
+          <!-- <label></label>
+          <input 
+            type="text" 
+            name="usertype" 
+            id="usertype" 
+            ng-model="usertype"
+            placeholder="I AM A . . ."
+            required> -->
+
+          <label></label>
+          <input 
+            type="text" 
+            name="username" 
+            id="username" 
+            ng-model="username"
+            placeholder="USERNAME"
+            required>
+            
+          <label></label>
+          <input 
+            type="password"
+            name="password"
+            id="password"
+            ng-model="password"
+            placeholder="PASSWORD"
+            required>
+
+          <label></label>
+          <input 
+            type="password"
+            name="confpwd"
+            id="confpwd"
+            ng-model="confpwd"
+            placeholder="CONFIRM PASSWORD"
+            required>
+        
+        </form>
+
+      </div>
+    
+    <!-- <div class="grid-block"> -->
+      <a class="button" ng-click="$parent.Register('uuuu', 'xxxx')">CREATE ACCOUNT</a>
+    <!-- </div> -->
     </div>
-  <!-- </div> -->
-  <div>{{showstatus}}</div>
-  </form>
-</div>
+
+  </div>
+
 </div>

@@ -47,7 +47,7 @@ var paths = {
   // These files are for your app's JavaScript
   appJS: [
     'client/assets/js/jquery.min.js',
-    'client/assets/js/moment.min.js',
+    //'client/assets/js/moment.min.js',
     // 'client/assets/js/fullcalendar.js',
     'client/assets/js/app.js'
   ]

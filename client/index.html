@@ -14,9 +14,12 @@
     <div class="grid-frame vertical tc-screen">
 
       <div class="grid-content shrink" style="padding: 0;">
+      <span ng-model="test"> {{test}}</span>
             <ul class="primary  menu-bar">
-              <li><a ui-sref="calendar2" class="float-left"><i class="tc-icon fa fa-calendar-o"></i></a></li>
-              <img src="assets/img/tchalk_logo_3col_new_png24.png">
+              <li><a ui-sref="calendar" class="float-left"><i class="tc-icon fa fa-calendar-o"></i></a></li>
+              <span>
+                <img src="assets/img/tchalk_logo_3col_new_png24.png" height="32">
+              </span>
               <!-- <li><a ui-sref="home"><strong>Home</strong></a></li> -->
               <!-- <li><a ui-sref="login"><strong>Login</strong></a></li> -->
               <!-- <li><a ui-sref="test"><strong>Test</strong></a></li> -->
@@ -24,33 +27,63 @@
             </ul>
 
         <div zf-panel="" id="settings-panel" position="right">
-            <a zf-close="" class="close-button">x</a>
-            <p></p>
-            <p id="settings-header">SETTINGS</p>
-            </ul>
-            <ul>
-              <li><a>MY ACCOUNT</a></li>
-              <li><a>DEMOS</a></li>
-              <li><a>FAQ</a></li>
-              <li><a>FEEDBACK</a></li>
-              <li><a>ABOUT US</a></li>
-            </ul>
-            
-          </div>
+          <a zf-close="" class="close-button">x</a>
+          <p></p>
+          <p id="settings-header">SETTINGS</p>
+          <ul>
+            <li><a ui-sref="account" zf-close="settings-panel">MY ACCOUNT</a></li>
+            <li><a>DEMOS</a></li>
+            <li><a>FAQ</a></li>
+            <li><a>FEEDBACK</a></li>
+            <li><a>ABOUT US</a></li>
+            <li><a></a></li>
+            <li><a></a></li>
+            <li><a ui-sref="login" zf-close="settings-panel">login</a></li>
+            <li><a ui-sref="test" zf-close="settings-panel">test</a></li>
+          </ul>            
+        </div>
 
-
-
-      </div>
+      </div><!-- /grid content head -->
 
       <div ui-view class="grid-content" style="padding: 0;">
-      </div>
+      </div><!-- /grid content middle -->
+
 
       <div class="grid-content shrink clearfix" style="padding: 0;">
         <ul class="primary  menu-bar">
-          <li><a class="float-left" ui-sref="calendar2"><img src="assets/img/tchalk_kids_button.png"></a></li>
-          <li><a class="float-right" ui-sref="calendar2"><i class="tc-icon fa fa-comments"></i></a></li>
+          <li>
+            <a class="float-left" zf-open="pupils-panel" ui-sref="login">
+              <img src="assets/img/tchalk_kids_button.png" class="tc-img-icon">
+            </a>
+          </li>
+          <li><a class="float-right" ui-sref="login"><i class="tc-icon fa fa-comments"></i></a></li>
         </ul>
-      </div>
+
+        <div zf-panel="" id="pupils-panel" position="left">
+          <a zf-close="" class="close-button">x</a>
+          <p></p>
+          <p id="settings-header">QUICK LOOK CHILD'S SCHEDULE</p>
+          {{records}}
+<!--           <ul style="margin: 0;">    
+            <li  ng-repeat="rec in records"  class="tc-days" ng-class="{'tc-today':today==rec.dom}">
+              <a zf-open="{{$index}}">
+                {{rec.day}} {{rec.dom}} 
+                <span ng-repeat="pupil in rec.pupils" class="tc-kids pc{{pupil['c']}}">{{pupil['i']}}</span>
+              </a>
+                <span  zf-modal="" id="{{$index}}">
+                  <a zf-close="{{$index}}"><button>Close</button>
+                  <p></p>
+                    <ul>
+                      <li ng-repeat="message in rec.messages"><span class="tc-kids pc{{message['c']}}">{{message['i']}}</span>{{message['m']}}</li>
+                    </ul> 
+                  </a>       
+                </span>      
+            </li>
+          </ul> -->
+
+        </div>
+
+      </div><!-- /grid content foot -->
 
     </div><!-- /grid-frame -->
   </body>

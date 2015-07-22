@@ -99,6 +99,7 @@
 
 // Application Colors #e7d200
 // $primary-color: #00558b;
+$primary-color: #1d8495;
 // $secondary-color: #f1f1f1;
 // $alert-color: #F04124;
 // $info-color: #A0D3E8;
@@ -249,7 +250,9 @@ $grey: #e6e6e6;
 // - - - - - - - - - - - - - - -
 
 // $button-padding: 0.85em 1em;
+$button-padding: 0.85em;
 // $button-margin: 0 $global-padding $global-padding 0;
+$button-margin: 0 0 0 0;
 // $button-style: solid;
 // $button-background: $primary-color;
 // $button-background-hover: scale-color($button-background, $lightness: -15%);
@@ -264,6 +267,7 @@ $grey: #e6e6e6;
 // $button-font-size: 0.9rem;
 // $button-opacity-disabled: 0.5;
 // $button-tag-selector: false; 
+$button-tag-selector: true;
 
 // 7. Accordion
 // - - - - - - - - - - - - - - -
@@ -465,6 +469,7 @@ $menubar2-color: isitlight($menubar2-background);
 // - - - - - - - - - - - - - - -
 
 // $modal-background: #fff;
+$modal-background: #D1C8B7;
 // $modal-border: 0;
 // $modal-radius: 0px;
 // $modal-shadow: none;

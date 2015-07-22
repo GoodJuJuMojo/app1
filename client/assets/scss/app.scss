@@ -18,9 +18,21 @@
 	font-family: "frente";
 	src: url('../fonts/frenteh1-regular.otf') ;
 }
+
+@font-face {
+	font-family: "montserrat";
+	src: url('../fonts/Montserrat-Regular.ttf') ;
+}
+
+@font-face {
+	font-family: "proximanova";
+	src: url('../fonts/ProximaNova-Regular.otf') ;
+}
+
+
 body {
 	background:$grey;
-	font-family: "frente";
+	font-family: "proximanova", "montserrat", "frente";
 }
 .menu-bar.primary {
 	background:$grey;
@@ -42,45 +54,70 @@ body {
 	color: #f9ecd1;
 }
 
-.pca {
-	color: $yellow-light;
-	background: #0071b5;
-	align-items: center;
-	justify-content: center;
+.tc-ghost {
+	color: $turquoise;
 	display: inline-flex;
-	border-radius: 1000px;
 	font-size: 1.5em;
-	width: 2.0rem;
-	height: 2.0rem;
-	border: 1px solid $yellow;
 	margin: 7px;
+	width: 0;
 }
-.pcb {
-	color: $yellow-light;
-	background: #ff1791;
-	align-items: center;
-	justify-content: center;
-	display: inline-flex;
-	border-radius: 1000px;
-	font-size: 1.5em;
-	width: 2.0rem;
-	height: 2.0rem;
-	border: 1px solid $yellow;
-	margin: 7px;
-}
-.pcc {
+.tc-kids {
+	font-family: frente;
 	color: $yellow-light;
 	background: #6dc065;
 	align-items: center;
 	justify-content: center;
 	display: inline-flex;
-	border-radius: 1000px;
 	font-size: 1.5em;
+	font-weight: bold;
 	width: 2.0rem;
 	height: 2.0rem;
 	border: 1px solid $yellow;
+	border-radius: 1000px;
 	margin: 7px;
 }
+
+
+.pca {
+	background: #0071b5;
+	
+}
+.pcb {
+	background: #ff1791;
+	
+}
+.pcc {
+	background: #6dc065;
+	
+}
+
+.tc-daydate {
+	/*font-family: frente;*/
+	color: $yellow-light;
+	justify-content: center;
+	display: inline-flex;
+	/*font-weight: bold;*/
+	width: 2.0rem;
+	height: 2.0rem;
+	padding: 7px;
+
+}
+
+.tc-day {
+	font-size: 12px;
+	position: relative;
+	left: 10px;
+	top: -20px;
+}
+
+.tc-date {
+	font-size: 24px;
+	position: relative;
+	right: 10px;
+	bottom: 5px;
+}
+
+
 .tc-days {
 	color: $yellow-light;
 	background: $turquoise;
@@ -88,6 +125,8 @@ body {
 	border-bottom-style: solid;
 	list-style: none;
 	height: 3.0rem;
+	/*display: inline-flex;*/
+	/*font-size: 1.5em;*/
 }
 
 .tc-days a {
@@ -96,10 +135,10 @@ body {
 }
 
 .tc-weeks {
-	color: $yellow-light;
+	/*color: $yellow-light;*/
 	background: $yellow;
-	border-width: 1px;
-	border-bottom-style: solid;
+	/*border-width: 1px;*/
+	/*border-bottom-style: solid;*/
 	list-style: none;
 	height: 3.0rem;
 	margin: 0;
@@ -107,13 +146,17 @@ body {
 
 .tc-weeks li {
 	display: inline-flex;
-	color: $brown;
-	padding: 6px;
+	padding-left: 6px;
+}
+
+.tc-weeks li .tc-daydate {
+	margin-top: 12px;
+	margin-right: 10px;
+	color: $brown;	
 }
 
 
-
-li.tc-schoolday {
+.tc-weeks li .tc-schoolday {
 	color: $yellow-light;
 }
 
@@ -121,9 +164,13 @@ li.tc-schoolday {
 	background: $turquoise-dark;
 }
 
+
 .tc-weeks .tc-today {
 	background: $yellow;
-	color: $turquoise-dark;
+}
+
+.tc-weeks .tc-today .tc-daydate {
+	color: $turquoise;
 }
 
 .tc-screen {
@@ -135,3 +182,13 @@ li.tc-schoolday {
 	font-size: 2.5em;
 }
 
+.tc-img-icon {
+	height: 40px;
+	width: 40px;
+}
+
+/* ? */
+ul ul, ol ul {
+  list-style-type: none;
+  color: black;
+}

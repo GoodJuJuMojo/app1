@@ -1,0 +1,127 @@
+var records = [
+      {
+        day: "Mon",
+        dom: "06",
+        pupils: [{"c":"b", "i":"BB"},{"c":"c", "i":"CB"}],
+        messages:[{"c":"b", "i":"BB", "m":"message about"},{"c":"c", "i":"CB", "m":"message about"}]
+      },
+      {
+        day: "Tue",
+        dom: "07",
+        pupils: [],
+        messages:[]
+      },
+      {
+        day: "Wed",
+        dom: "08",
+        pupils: [{"c":"c", "i":"CB"}],
+        messages:[{"c":"c", "i":"CB", "m":"message about"}]
+      },
+      {
+        day: "Thu",
+        dom: "09",
+        pupils: [],
+        messages:[]
+      },
+      {
+        day: "Fri",
+        dom: "10",
+        pupils: [{"c":"a", "i":"AB"},{"c":"b", "i":"BB"},{"c":"c", "i":"CB"}],
+        messages:[{"c":"a", "i":"AB", "m":"message about"}, {"c":"b", "i":"BB", "m":"message about"}, {"c":"c", "i":"CB", "m":"message about"}]
+      },
+      {
+        day: "Sat",
+        dom: "11",
+        pupils: [],
+        messages:[]
+      },
+      {
+        day: "Sun",
+        dom: "12",
+        pupils: [],
+        messages:[]
+      },
+      {
+        day: "Mon",
+        dom: "13",
+        pupils: [{"c":"b", "i":"BB"},{"c":"c", "i":"CB"}],
+        messages:[{"c":"b", "i":"BB", "m":"message about"}, {"c":"c", "i":"CB", "m":"message about"}]
+      },
+      {
+        day: "Tue",
+        dom: "14",
+        pupils: [{"c":"a", "i":"AB"},{"c":"b", "i":"BB"}],
+        messages:[{"c":"a", "i":"AB", "m":"message about"}, {"c":"b", "i":"BB", "m":"message about"}]
+      },
+      {
+        day: "Wed",
+        dom: "15",
+        pupils: [{"c":"c", "i":"CB"}],
+        messages:[{"c":"c", "i":"CB", "m":"message about"}]
+      },
+      {
+        day: "Thu",
+        dom: "16",
+        pupils: [],
+        messages:[]
+      },
+      {
+        day: "Fri",
+        dom: "17",
+        pupils: [{"c":"b", "i":"BB"}],
+        messages:[{"c":"b", "i":"BB", "m":"message about"}]
+      },
+      {
+        day: "Sat",
+        dom: "18",
+        pupils: [],
+        messages:[]
+      },{
+        day: "Sun",
+        dom: "19",
+        pupils: [],
+        messages:[]
+      },
+      {
+        day: "Mon",
+        dom: "20",
+        pupils: [{"c":"c", "i":"CB"}],
+        messages:[{"c":"c", "i":"CB", "m":"message about"}]
+      },
+      {
+        day: "Tue",
+        dom: "21",
+        pupils: [],
+        messages:[]
+      },
+      {
+        day: "Wed",
+        dom: "22",
+        pupils: [{"c":"c", "i":"CB"}],
+        messages:[{"c":"c", "i":"CB", "m":"message about"}]
+      },
+      {
+        day: "Thu",
+        dom: "23",
+        pupils: [{"c":"a", "i":"AB"},{"c":"b", "i":"BB"},{"c":"c", "i":"CB"}],
+        messages:[{"c":"a", "i":"AB", "m":"message about"}, {"c":"b", "i":"BB", "m":"message about"}, {"c":"c", "i":"CB", "m":"message about"}]
+      },
+      {
+        day: "Fri",
+        dom: "24",
+        pupils: [{"c":"b", "i":"BB"}],
+        messages:[{"c":"b", "i":"BB", "m":"message about"}]
+      },
+      {
+        day: "Sat",
+        dom: "25",
+        pupils: [],
+        messages:[]
+      },{
+        day: "Sun",
+        dom: "26",
+        pupils: [],
+        messages:[]
+      }
+
+    ];
