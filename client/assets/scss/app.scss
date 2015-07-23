@@ -31,11 +31,19 @@
 
 
 body {
-	background:$grey;
+	background: $grey;
 	font-family: "proximanova", "montserrat", "frente";
 }
 .menu-bar.primary {
-	background:$grey;
+	background: $grey;
+}
+
+.menu-bar.primary > li > a:hover {
+      background: $grey;
+ }
+
+.tc-logo {
+	padding-top: 5px;
 }
 
 #settings-panel ul {
@@ -90,6 +98,37 @@ body {
 	background: #6dc065;
 	
 }
+
+.tc-cal-date {
+	vertical-align: top;
+	overflow: hidden;
+	display: inline-flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	width: 2em;
+	height: 3em;
+}
+
+.tc-cal-date .tc-day-c,
+.tc-cal-date .tc-date-c {
+	text-align: center;
+	line-height: 1.0;
+	display: block;
+	flex: 1 1 auto;
+}
+
+.tc-cal-date .tc-day-c {
+	text-transform: uppercase;
+	order: 1;
+	font-size: 0.6em;
+}
+
+.tc-cal-date .tc-date-c {
+	order: 2;
+	font-size: 1.5em;
+}
+
 
 .tc-daydate {
 	/*font-family: frente;*/
@@ -169,7 +208,7 @@ body {
 	background: $yellow;
 }
 
-.tc-weeks .tc-today .tc-daydate {
+.tc-weeks .tc-today .tc-cal-date {
 	color: $turquoise;
 }
 

@@ -456,10 +456,11 @@ function CalendarController($scope, $stateParams, $state, $controller, recordSer
     console.log($scope.recordsCurr);
 
     $scope.records = recordsCurr;
-    $scope.weekA = recordsCurrWeek;
-    $scope.weekB = recordsNextWeek;
+    $scope.weekA = recordsPrevWeek;
+    $scope.weekB = recordsCurrWeek;
+    $scope.weekC = recordsNextWeek;
     $scope.disablePrev = "";
-    $scope.disableCurr = "";
+    $scope.disableCurr = "y";
     $scope.disableNext = "";
     
 
@@ -508,16 +509,18 @@ function CalendarController($scope, $stateParams, $state, $controller, recordSer
       $scope.records = recordsPrev;
       $scope.weekA = recordsPrevWeek;
       $scope.weekB = recordsCurrWeek;
+      $scope.weekC = recordsNextWeek;
     };
 
     $scope.currWeek = function() {
       console.log('...in currWeek...');
       $scope.disablePrev = "";
-      $scope.disableCurr = "";
+      $scope.disableCurr = "y";
       $scope.disableNext = "";
       $scope.records = recordsCurr;
-      $scope.weekA = recordsCurrWeek;
-      $scope.weekB = recordsNextWeek;
+      $scope.weekA = recordsPrevWeek;
+      $scope.weekB = recordsCurrWeek;
+      $scope.weekC = recordsNextWeek;
     };
 
     $scope.nextWeek = function() {
@@ -526,8 +529,9 @@ function CalendarController($scope, $stateParams, $state, $controller, recordSer
       $scope.disableCurr = "";
       $scope.disableNext = "y";
       $scope.records = recordsNext;
-      $scope.weekA = recordsCurrWeek;
-      $scope.weekB = recordsNextWeek;
+      $scope.weekA = recordsPrevWeek;
+      $scope.weekB = recordsCurrWeek;
+      $scope.weekC = recordsNextWeek;      
     };
 
  }

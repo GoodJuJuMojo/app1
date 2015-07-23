@@ -27,7 +27,7 @@ controller: CalendarController
     
     <li  ng-repeat="rec in records"  class="tc-days" ng-class="{'tc-today':today==rec.dom}">
       <a zf-open="{{$index}}">
-        <span class="tc-daydate"><span class="tc-day">{{rec.day}}</span><span class="tc-date"> {{rec.dom}}</span></span>
+        <span class="tc-cal-date"><span class="tc-day-c">{{rec.day}}</span><span class="tc-date-c"> {{rec.dom}}</span></span>
         <span class="tc-ghost">.</span> 
         <span ng-repeat="pupil in rec.pupils" class="tc-kids pc{{pupil['c']}}">{{pupil['i']}}</span>
       </a>
@@ -45,13 +45,28 @@ controller: CalendarController
     
   <ul class="tc-weeks">
     <li  ng-repeat="day in weekA" ng-class="{'tc-today':today==day.dom}">
-     <span class="tc-daydate" ng-class="{'tc-schoolday':$index < 5, 'tc-today':today==day.dom}"><span class="tc-day">{{day.day}}</span><span class="tc-date"> {{day.dom}}</span></span>
+       <span class="tc-cal-date" ng-class="{'tc-schoolday':($index < 5 && disablePrev), 'tc-today':today==day.dom}">
+        <span class="tc-day-c">{{day.day}}</span>
+        <span class="tc-date-c"> {{day.dom}}</span>
+      </span>
     </li>
   </ul>
 
   <ul class="tc-weeks">
     <li  ng-repeat="day in weekB" ng-class="{'tc-today':today==day.dom}">
-    <span class="tc-daydate"><span class="tc-day">{{day.day}}</span><span class="tc-date"> {{day.dom}}</span></span>
+      <span class="tc-cal-date" ng-class="{'tc-schoolday':($index < 5 && disableCurr), 'tc-today':today==day.dom}">
+        <span class="tc-day-c">{{day.day}}</span>
+        <span class="tc-date-c"> {{day.dom}}</span>
+      </span>
+    </li>
+  </ul>
+
+  <ul class="tc-weeks">
+    <li  ng-repeat="day in weekC" ng-class="{'tc-today':today==day.dom}">
+      <span class="tc-cal-date" ng-class="{'tc-schoolday':($index < 5 && disableNext), 'tc-today':today==day.dom}">
+        <span class="tc-day-c">{{day.day}}</span>
+        <span class="tc-date-c"> {{day.dom}}</span>
+      </span>
     </li>
   </ul>
 

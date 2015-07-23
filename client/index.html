@@ -17,7 +17,7 @@
       <span ng-model="test"> {{test}}</span>
             <ul class="primary  menu-bar">
               <li><a ui-sref="calendar" class="float-left"><i class="tc-icon fa fa-calendar-o"></i></a></li>
-              <span>
+              <span class="tc-logo">
                 <img src="assets/img/tchalk_logo_3col_new_png24.png" height="32">
               </span>
               <!-- <li><a ui-sref="home"><strong>Home</strong></a></li> -->
@@ -51,19 +51,25 @@
 
       <div class="grid-content shrink clearfix" style="padding: 0;">
         <ul class="primary  menu-bar">
+          
           <li>
-            <a class="float-left" zf-open="pupils-panel" ui-sref="login">
+            <a class="float-left" zf-open="pupils-panel">
               <img src="assets/img/tchalk_kids_button.png" class="tc-img-icon">
             </a>
           </li>
-          <li><a class="float-right" ui-sref="login"><i class="tc-icon fa fa-comments"></i></a></li>
+          
+          <li>
+            <a class="float-right" ui-sref="login">
+              <i class="tc-icon fa fa-comments"></i>
+            </a>
+          </li>
+
         </ul>
 
         <div zf-panel="" id="pupils-panel" position="left">
           <a zf-close="" class="close-button">x</a>
           <p></p>
           <p id="settings-header">QUICK LOOK CHILD'S SCHEDULE</p>
-          {{records}}
 <!--           <ul style="margin: 0;">    
             <li  ng-repeat="rec in records"  class="tc-days" ng-class="{'tc-today':today==rec.dom}">
               <a zf-open="{{$index}}">
