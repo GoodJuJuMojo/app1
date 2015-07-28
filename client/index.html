@@ -11,20 +11,50 @@
     <script src="assets/js/app.js"></script>
   </head>
   <body>
-    <div class="grid-frame vertical tc-screen">
 
-      <div class="grid-content shrink" style="padding: 0;">
-      <span ng-model="test"> {{test}}</span>
-            <ul class="primary  menu-bar">
-              <li><a ui-sref="calendar" class="float-left"><i class="tc-icon fa fa-calendar-o"></i></a></li>
-              <span class="tc-logo">
-                <img src="assets/img/tchalk_logo_3col_new_png24.png" height="32">
-              </span>
-              <!-- <li><a ui-sref="home"><strong>Home</strong></a></li> -->
-              <!-- <li><a ui-sref="login"><strong>Login</strong></a></li> -->
-              <!-- <li><a ui-sref="test"><strong>Test</strong></a></li> -->
-              <li><a  class="float-right" zf-open="settings-panel"><i class="tc-icon fa fa-cog"></i></a></li>
-            </ul>
+    <div class="grid-frame vertical tc-screen" ng-controller="HeadController">
+
+      <div class="grid-content shrink" style="padding: 0;" >
+
+      <!-- <span ng-class="{'hide':accountStatus}">testing 4 {{dj2}}({{accountStatus}}) test"</span> -->
+
+       <ul class="primary menu-bar">
+
+        <li class="tc-spacer" ng-class="{'hide':accountStatus}">
+          <a class="float-left">
+            <i class="tc-icon fa fa-calendar-o"></i>
+          </a>
+        </li> 
+
+        <li ng-class="{'hide':!accountStatus}">
+          <a ui-sref="calendar" class="float-left">
+            <i class="tc-icon fa fa-calendar-o"></i>
+          </a>
+        </li>
+
+        <span class="tc-logo">
+          <img src="assets/img/tchalk_logo_3col_new_png24.png" height="32">
+        </span>
+        
+        <!-- <li><a ui-sref="home"><strong>Home</strong></a></li> -->
+        <!-- <li><a ui-sref="login"><strong>Login</strong></a></li> -->
+        <!-- <li><a ui-sref="test"><strong>Test</strong></a></li> -->
+        
+        <li class="tc-spacer" ng-class="{'hide':accountStatus}">
+          <a  class="float-right" zf-open="settings-panel">
+            <i class="tc-icon fa fa-cog"></i>
+          </a>
+        </li>
+
+        <li ng-class="{'hide':!accountStatus}">
+          <a  class="float-right" zf-open="settings-panel">
+            <i class="tc-icon fa fa-cog"></i>
+          </a>
+        </li>
+
+      </ul>
+
+    </div><!-- /grid content head -->
 
         <div zf-panel="" id="settings-panel" position="right">
           <a zf-close="" class="close-button">x</a>
@@ -32,18 +62,17 @@
           <p id="settings-header">SETTINGS</p>
           <ul>
             <li><a ui-sref="account" zf-close="settings-panel">MY ACCOUNT</a></li>
-            <li><a>DEMOS</a></li>
-            <li><a>FAQ</a></li>
-            <li><a>FEEDBACK</a></li>
-            <li><a>ABOUT US</a></li>
-            <li><a></a></li>
-            <li><a></a></li>
-            <li><a ui-sref="login" zf-close="settings-panel">login</a></li>
-            <li><a ui-sref="test" zf-close="settings-panel">test</a></li>
+            <li><a ui-sref="calmonth" zf-close="settings-panel">MONTH CALENDAR</a></li>
+            <li><a ui-sref="faq" zf-close="settings-panel">FAQ</a></li>            
+            <li><a ui-sref="about" zf-close="settings-panel">ABOUT US</a></li>
+            <li><a ui-sref="tchalkback" zf-close="settings-panel">TCHALKBACK</a></li>
+            <li><a ui-sref="home" zf-close="settings-panel">LOGOUT</a></li>
+            <li><a ui-sref="login" zf-close="settings-panel">[login]</a></li>
+            <li><a ui-sref="test" zf-close="settings-panel">[test]</a></li>
           </ul>            
         </div>
 
-      </div><!-- /grid content head -->
+      
 
       <div ui-view class="grid-content" style="padding: 0;">
       </div><!-- /grid content middle -->
@@ -52,13 +81,13 @@
       <div class="grid-content shrink clearfix" style="padding: 0;">
         <ul class="primary  menu-bar">
           
-          <li>
+          <li ng-class="{'hide':!accountStatus}">
             <a class="float-left" zf-open="pupils-panel">
               <img src="assets/img/tchalk_kids_button.png" class="tc-img-icon">
             </a>
           </li>
           
-          <li>
+          <li ng-class="{'hide':!accountStatus}">
             <a class="float-right" ui-sref="login">
               <i class="tc-icon fa fa-comments"></i>
             </a>
@@ -92,5 +121,7 @@
       </div><!-- /grid content foot -->
 
     </div><!-- /grid-frame -->
+
   </body>
+
 </html>

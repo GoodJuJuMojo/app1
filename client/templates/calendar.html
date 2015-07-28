@@ -32,12 +32,12 @@ controller: CalendarController
         <span ng-repeat="pupil in rec.pupils" class="tc-kids pc{{pupil['c']}}">{{pupil['i']}}</span>
       </a>
         <span  zf-modal="" id="{{$index}}">
-          <a zf-close="{{$index}}"><button>Close</button>
+          <a zf-close="{{$index}}"><button>Close</button></a>
           <p></p>
             <ul>
               <li ng-repeat="message in rec.messages"><span class="tc-kids pc{{message['c']}}">{{message['i']}}</span>{{message['m']}}</li>
             </ul> 
-          </a>       
+                 
         </span>      
     </li>    
 

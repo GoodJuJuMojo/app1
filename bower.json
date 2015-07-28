@@ -24,6 +24,7 @@
   ],
   "dependencies": {
     "foundation-apps": "~1.1.0",
-    "fontawesome": "~4.3.0"
+    "fontawesome": "~4.3.0",
+    "angular-clndr": "~0.3.2"
   }
 }

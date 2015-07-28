@@ -29,11 +29,13 @@ controller: LoginController
             placeholder="PASSWORD"
             required>
 
+          <a class="button" ui-sref="calendar" ng-click="$parent.Login()">LOGIN</a>
+
         </form>
 
       </div>
 
-      <a class="button" ui-sref="calendar" ng-click="$parent.Login()">LOGIN</a>        
+             
       
     </div>
 
@@ -90,13 +92,17 @@ controller: LoginController
             ng-model="confpwd"
             placeholder="CONFIRM PASSWORD"
             required>
+
+          <!-- <div class="grid-block"> -->
+          <a class="button" ng-click="$parent.Register('uuuu', 'xxxx')">CREATE ACCOUNT</a>
+          <!-- </div> -->
         
         </form>
 
       </div>
     
     <!-- <div class="grid-block"> -->
-      <a class="button" ng-click="$parent.Register('uuuu', 'xxxx')">CREATE ACCOUNT</a>
+      <!-- <a class="button" ng-click="$parent.Register('uuuu', 'xxxx')">CREATE ACCOUNT</a> -->
     <!-- </div> -->
     </div>
 
