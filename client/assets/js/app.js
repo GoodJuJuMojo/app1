@@ -99,7 +99,7 @@ angular.module('application').value('loggedIn', 'xyz');
 angular.module('application').controller('HeadController', ['$rootScope', '$scope', '$timeout', '$stateParams', '$state', '$controller', 'loggedIn', 'accountService', 'recordService', 'eventsService',
   function ($rootScope, $scope, $timeout, $stateParams, $state, $controller, loggedIn, accountService, recordService, eventsService) {
 
-    console.log('...in HeadController...');
+    //console.log('...in HeadController...');
 
     accountService.setAccountStatus("");
 
@@ -111,14 +111,14 @@ angular.module('application').controller('HeadController', ['$rootScope', '$scop
 
     $scope.dj = "dominic";
     $scope.Test = function(test) {
-      console.log('in HeadController', $scope);
-      console.log(eventsService.getEvents());
-      console.log($rootScope.pupilNames);
+      // console.log('in HeadController', $scope);
+      // console.log(eventsService.getEvents());
+      // console.log($rootScope.pupilNames);
 
     };
 
     $scope.pupilNames = $rootScope.pupilNames;
-    console.log($scope.pupilNames);
+    //console.log($scope.pupilNames);
 
 
   }
@@ -140,21 +140,21 @@ function HomeController($rootScope, $scope, $stateParams, $state, $controller, l
     $rootScope: $rootScope, $scope: $scope, $stateParams: $stateParams, $state: $state, $loggedIn: loggedIn, $accountService: accountService
     })
   );
-    console.log('...in HomeController...');
-    console.log('$scope: ', $scope);
-    console.log('$rootScope: ', $rootScope);
-    console.log(loggedIn);
+    // console.log('...in HomeController...');
+    // console.log('$scope: ', $scope);
+    // console.log('$rootScope: ', $rootScope);
+    // console.log(loggedIn);
     loggedIn = "abc";
-    $scope.dj1 = loggedIn;
-    $scope.editMode = true;
-    console.log('account status:', accountService.getAccountStatus());
-console.log(loggedIn);
-$rootScope.roo == "rsrrsrs";
+//     $scope.dj1 = loggedIn;
+//     $scope.editMode = true;
+//     console.log('account status:', accountService.getAccountStatus());
+// console.log(loggedIn);
+// $rootScope.roo == "rsrrsrs";
 
     $scope.Home = function(home){
-      var response = {};
-      console.log('...in Home...', test);
-      $scope.showstatus = 'zzzzzzz';
+      // var response = {};
+      // console.log('...in Home...', test);
+      // $scope.showstatus = 'zzzzzzz';
     
     };
  }
@@ -175,11 +175,11 @@ function LoginController($rootScope, $scope, $timeout, $stateParams, $state, $co
       })
   );
 
-console.log('...in LoginController...');
-console.log('$stateParams:', $stateParams);
-console.log('$state:', $state.$current.data.vars.name);
-console.log('$controller:', $controller);
-console.log('Logged In?:', loggedIn);
+// console.log('...in LoginController...');
+// console.log('$stateParams:', $stateParams);
+// console.log('$state:', $state.$current.data.vars.name);
+// console.log('$controller:', $controller);
+// console.log('Logged In?:', loggedIn);
 
 
 accountService.setAccountStatus('calendar');
@@ -191,21 +191,18 @@ if ($state.$current.data.vars.name == 'login') {
 
 $scope.test = 'test';
 
-function add (a,b) {
-  return a + b;
-}
 
 function pupilNames(events) {
   var pupils = [];
   var pn = "";
   for (var prop in events) {
-    console.log('e: ', events[prop].name);
+    //console.log('e: ', events[prop].name);
     pn = events[prop].name;
-    console.log(pn, ' ', pupils.indexOf(pn));
+    //console.log(pn, ' ', pupils.indexOf(pn));
     if (pupils.indexOf(pn) == -1) {
-      console.log('n:', pn);
+      //console.log('n:', pn);
       pupils.push(pn);
-      console.log('p:', pupils);
+      //console.log('p:', pupils);
     }
   }
   return pupils.sort();
@@ -214,19 +211,18 @@ function pupilNames(events) {
 
   $scope.Login = function(username, password, code) {
 
-    console.log('ans = ', add(1,3));
-    var response = {};
+  
     
-    console.log('...in Login...', response);
-    console.log('login loggedIn:',  loggedIn);
+    // console.log('...in Login...', response);
+    // console.log('login loggedIn:',  loggedIn);
     
     loggedIn = false;
 
-    console.log('Logged In?:', loggedIn);
+    //console.log('Logged In?:', loggedIn);
     
     $scope.showstatus = '';
     
-    console.log('u:',username, 'p:',password, 's.u',$scope.username);
+    //console.log('u:',username, 'p:',password, 's.u',$scope.username);
     
     if ($scope.username !== 'aaa') {
       $scope.showstatus = 'Invalid Username ';
@@ -461,27 +457,27 @@ function pupilNames(events) {
 /***********************************************************************/
 /* Register Controller                                                 */
 
-angular.module('application').controller('RegisterController', RegisterController);
-RegisterController.$inject = ['$scope', '$stateParams', '$state', '$controller'];
-function RegisterController($scope, $stateParams, $state, $controller) {
-  angular.extend(this, $controller('DefaultController', {
-      $scope: $scope, $stateParams: $stateParams, $state: $state
-      })
-  );
-  $scope.Register = function(username, password, code){
-    var response = {};
-    console.log('...in Register...', response);
-    $scope.showstatus = '';
-    console.log('u:',username, 'p:',password, 's.u',$scope.username);
-    if ($scope.username !== 'aaa') {
-      $scope.showstatus = 'Invalid Username ';
-    }
-    if ($scope.password !== 'bbb') {
-      $scope.showstatus += ' Invalid Password';
-    }
+// angular.module('application').controller('RegisterController', RegisterController);
+// RegisterController.$inject = ['$scope', '$stateParams', '$state', '$controller'];
+// function RegisterController($scope, $stateParams, $state, $controller) {
+//   angular.extend(this, $controller('DefaultController', {
+//       $scope: $scope, $stateParams: $stateParams, $state: $state
+//       })
+//   );
+//   $scope.Register = function(username, password, code){
+//     // var response = {};
+//     // console.log('...in Register...', response);
+//     $scope.showstatus = '';
+//     console.log('u:',username, 'p:',password, 's.u',$scope.username);
+//     if ($scope.username !== 'aaa') {
+//       $scope.showstatus = 'Invalid Username ';
+//     }
+//     if ($scope.password !== 'bbb') {
+//       $scope.showstatus += ' Invalid Password';
+//     }
 
-  };
-}
+//   };
+// }
 
 /* End Register Controller                                             */
 /***********************************************************************/
@@ -503,20 +499,22 @@ function CalendarController($scope, $rootScope, $timeout, $stateParams, $state, 
 
   $scope.accountStatus = accountService.getAccountStatus();
 
-  console.log('...in CalendarController...');
-  console.log($scope);
-  console.log('s:', $scope.accountStatus);
-  console.log('rs:', $rootScope.accountStatus);
+  // console.log('...in CalendarController...');
+  // console.log($scope);
+  // console.log('s:', $scope.accountStatus);
+  // console.log('rs:', $rootScope.accountStatus);
 
   if(!$scope.accountStatus) {
     $state.go('home');
   }
 
-  $scope.editMode = false;
+  //$scope.editMode = false;
   //$scope.today=(moment().format("D"));
+
   var now = new Date();
   $scope.today = now.getDate();
-  console.log('$scope.today: ', $scope.today);
+
+  //console.log('$scope.today: ', $scope.today);
 
   var records = recordService.getRecordData();
 
@@ -527,7 +525,7 @@ function CalendarController($scope, $rootScope, $timeout, $stateParams, $state, 
   var recordsCurrWeek = records.slice(7, 14);
   var recordsNextWeek = records.slice(14, 21);
 
-  console.log($scope.recordsCurr);
+  //console.log($scope.recordsCurr);
 
   $scope.records = recordsCurr;
   $scope.weekA = recordsPrevWeek;
@@ -535,11 +533,7 @@ function CalendarController($scope, $rootScope, $timeout, $stateParams, $state, 
   $scope.weekC = recordsNextWeek;
   $scope.disablePrev = "";
   $scope.disableCurr = "y";
-  $scope.disableNext = "";
-      
-
-   
-      
+  $scope.disableNext = "";    
 
   $scope.Calendar = function(Calendar){
     console.log('prev=',recordsPrev);
@@ -615,9 +609,9 @@ function CalendarController($scope, $rootScope, $timeout, $stateParams, $state, 
 
 
 
-  $scope.Test = function(test) {
-      console.log('in CalendarController');
-    };
+  // $scope.Test = function(test) {
+  //     console.log('in CalendarController');
+  //   };
 
 }
 
@@ -637,7 +631,7 @@ function YearviewController($scope, $stateParams, $state, $controller, loggedIn,
     })
   );
 
-  $scope.editMode = false;    
+  //$scope.editMode = false;    
 
   $scope.options = {
     weekOffset: 1,
@@ -648,7 +642,7 @@ function YearviewController($scope, $stateParams, $state, $controller, loggedIn,
     }
   };
 
-  console.log(moment());
+  //console.log(moment());
 
 
   $scope.events = [
@@ -671,9 +665,6 @@ function YearviewController($scope, $stateParams, $state, $controller, loggedIn,
       { date: "2016-06-05", name: "CB", title: "School Holiday - Ends"},
       { date: "2016-06-06", name: "CB", title: "Holiday - School closed"},
       { date: "2016-06-30", name: "CB", title: "Half day at 12.00 - Summer Holiday"}
-      // { date: moment().add(3, 'days').format(), title: "Happy days" },
-      // { date: moment().subtract(5, 'days').format(), title: "Good old days" },
-      // { date: moment().subtract(5, 'days').format(), title: "And some more" },
       
   ];
 
@@ -884,7 +875,7 @@ var journal = [
 ]
 
 $scope.journal = journal[kid];
-console.log($scope.journal[kid]);
+//console.log($scope.journal[kid]);
 $scope.day = childDay[kid];
 $scope.dom = childDom[kid];
 $scope.name = childName[kid];
@@ -897,8 +888,8 @@ $scope.class = childClass[kid];
     $scope.name = childName[child];
     $scope.class = childClass[child];
 
-    console.log('...in Homework...Test...', Homework3);
-    $scope.showstatus = 'zzzzzzz';
+    // console.log('...in Homework...Test...', Homework3);
+    // $scope.showstatus = 'zzzzzzz';
 
   };
 
@@ -906,15 +897,6 @@ $scope.class = childClass[kid];
 
 /* End Homework Controller                                             */
 /***********************************************************************/
-
-
-
-
-
-
-
-
-
 
 
 /***********************************************************************/
@@ -928,14 +910,14 @@ function SettingsController($scope, $stateParams, $state, $controller) {
     })
   );
 
-  $scope.editMode = false;    
+  // $scope.editMode = false;    
 
-  $scope.Settings = function(Settings3){
-    var response = {};
-    console.log('...in Settings...', Settings3);
-    $scope.showstatus = 'zzzzzzz';
+  // $scope.Settings = function(Settings3){
+  //   var response = {};
+  //   console.log('...in Settings...', Settings3);
+  //   $scope.showstatus = 'zzzzzzz';
 
-  };
+  // };
 
 }
 
@@ -956,13 +938,13 @@ function AccountController($scope, $stateParams, $state, $controller, loggedIn, 
 
     
   $scope.Save = function(test){
-    console.log('in AccountController loggedIn:', loggedIn );
+    // console.log('in AccountController loggedIn:', loggedIn );
     
-    var response = {};
-    loggedIn = 'new value';
-    console.log('...in Account.Save...', test, loggedIn);
-    console.log(recordService.getRecordData());
-    $scope.showstatus = 'zzzzzzz';
+    // var response = {};
+    // loggedIn = 'new value';
+    // console.log('...in Account.Save...', test, loggedIn);
+    // console.log(recordService.getRecordData());
+    // $scope.showstatus = 'zzzzzzz';
   
   };
 }
@@ -982,12 +964,12 @@ function FaqController($scope, $stateParams, $state, $controller, loggedIn, reco
     })
   );
     
-  $scope.Test = function(test) {
-    console.log('in FaqController loggedIn:', loggedIn );
-    var response = {};
-    loggedIn = 'new value';
-    console.log('...in Faq.Save...', test, loggedIn);  
-  };
+  // $scope.Test = function(test) {
+  //   console.log('in FaqController loggedIn:', loggedIn );
+  //   var response = {};
+  //   loggedIn = 'new value';
+  //   console.log('...in Faq.Save...', test, loggedIn);  
+  // };
 
 }
 
@@ -1006,12 +988,12 @@ function AboutController($scope, $stateParams, $state, $controller, loggedIn, re
     })
   );
     
-  $scope.Test = function(test) {
-    console.log('in AboutController loggedIn:', loggedIn );
-    var response = {};
-    loggedIn = 'new value';
-    console.log('...in About.Save...', test, loggedIn);  
-  };
+  // $scope.Test = function(test) {
+  //   console.log('in AboutController loggedIn:', loggedIn );
+  //   var response = {};
+  //   loggedIn = 'new value';
+  //   console.log('...in About.Save...', test, loggedIn);  
+  // };
 
 }
 
@@ -1032,12 +1014,12 @@ function TchalkbackController($scope, $stateParams, $state, $controller, loggedI
     })
   );
     
-  $scope.Test = function(test) {
-    console.log('in TchalkbackController loggedIn:', loggedIn );
-    var response = {};
-    loggedIn = 'new value';
-    console.log('...in Tchalkback.Save...', test, loggedIn);  
-  };
+  // $scope.Test = function(test) {
+  //   //console.log('in TchalkbackController loggedIn:', loggedIn );
+  //   var response = {};
+  //   loggedIn = 'new value';
+  //   //console.log('...in Tchalkback.Save...', test, loggedIn);  
+  // };
 
 }
 
@@ -1051,7 +1033,7 @@ function TchalkbackController($scope, $stateParams, $state, $controller, loggedI
 angular.module('application').controller('QuicklookController', ['$rootScope', '$scope', '$timeout', '$stateParams', '$state', '$controller', 'loggedIn', 'accountService' ,
   function ($rootScope, $scope, $timeout, $stateParams, $state, $controller, loggedIn, accountService) {
 
-    console.log('...in QuicklookController...');
+    //console.log('...in QuicklookController...');
 
     accountService.setAccountStatus("");
 
@@ -1059,7 +1041,7 @@ angular.module('application').controller('QuicklookController', ['$rootScope', '
 
     $rootScope.accountStatus = accountService.getAccountStatus();
 
-    console.log('x...in QuicklookController...');
+    //console.log('x...in QuicklookController...');
 
     $scope.Test = function(test) {
       console.log('in QuicklookController Test:', $scope.pupilNames, $rootScope.pupilNames );
@@ -1067,49 +1049,14 @@ angular.module('application').controller('QuicklookController', ['$rootScope', '
 
 
 
-    }
+}
     
 
 ]);
 
-    // $scope.options = {
-    //   weekOffset: 1,
-    //   daysOfTheWeek: ['S','M', 'T', 'W', 'T', 'F', 'S'],
-    //   constraints: {
-    //       startDate: moment().subtract(1, 'months').format('YYYY-MM-15'),
-    //       endDate: moment().add(12, 'months').format('YYYY-MM-15')
-    //   }
-    // };
-
-    // $scope.events = [
-    //     { date: moment().add(3, 'days').format(), title: "Happy days" },
-    //     { date: moment().subtract(5, 'days').format(), title: "Good old days" },
-    //     { date: moment().subtract(5, 'days').format(), title: "And some more" }
-    // ];
-
-    // $scope.showEvents = function(events) {
-    //     alert(events.map(function(e) { return e.title }).join("\n"));
-    // };
-
-    // $scope.Test = function(test){
-    //       console.log('in QuicklookController loggedIn:', loggedIn );
-          
-    //       var response = {};
-    //       loggedIn = 'new value';
-    //       console.log('...in Quicklook...', test, loggedIn);
-    //       console.log(recordService.getRecordData());
-    //       $scope.showstatus = 'zzzzzzz';
-    //       console.log($scope.events);
-        
-    //     };
 
 /* End  Quicklook Controller                                            */
 /************************************************************************/
-
-
-
-
-
 
 
 /***********************************************************************/
@@ -1123,40 +1070,7 @@ function TestController($scope, $stateParams, $state, $controller, loggedIn, rec
     })
   );
 
-    $scope.editMode = false;  
-
-    $scope.options = {
-      weekOffset: 1,
-      daysOfTheWeek: ['S','M', 'T', 'W', 'T', 'F', 'S'],
-      constraints: {
-          startDate: moment().subtract(1, 'months').format('YYYY-MM-15'),
-          endDate: moment().add(12, 'months').format('YYYY-MM-15')
-      }
-    };
-
-    $scope.events = [
-        { date: moment().add(3, 'days').format(), title: "Happy days" },
-        { date: moment().subtract(5, 'days').format(), title: "Good old days" },
-        { date: moment().subtract(5, 'days').format(), title: "And some more" }
-    ];
-
-    $scope.showEvents = function(events) {
-        alert(events.map(function(e) { return e.title }).join("\n"));
-    };
-
-    $scope.Test = function(test){
-          console.log('in TestController loggedIn:', loggedIn );
-          
-          var response = {};
-          loggedIn = 'new value';
-          console.log('...in Test...', test, loggedIn);
-          console.log(recordService.getRecordData());
-          $scope.showstatus = 'zzzzzzz';
-          console.log($scope.events);
-        
-        };
-
- }
+}
 
 /* End  Test Controller                                                 */
  /***********************************************************************/
