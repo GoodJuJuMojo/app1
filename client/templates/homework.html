@@ -1,0 +1,42 @@
+---
+name: homework
+url: /homework/{kid:int}
+controller: HomeworkController
+---
+
+<div class="" style="margin: 0;">
+
+<div class="tc-hw-header grid-block shrink">
+  <span class="tc-cal-date tc-hw-date grid-content">
+    <span class="tc-day-c">{{day}}</span>
+    <span class="tc-date-c"> {{dom}}</span>
+  </span>
+  <span class="tc-hw-name  grid-content">{{name}}</span>
+  <span class="tc-hw-class  grid-content">{{class}}</span>
+</div>
+
+
+<section>
+<div class="tc-hw-journal">
+  <ul>
+    <li ng-repeat="line in journal">
+      <span class="tc-hw-subject">{{line.subject}} :</span>
+
+        <ul>
+          <li ng-repeat="topic in line.topic">
+            <span class="tc-hw-topic">{{topic.title}} :</span>
+            <ul>
+              <li ng-repeat="data in topic.content">
+                <span class="tc-hw-item">{{data.item}}</span>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <hr>
+    </li>
+
+  </ul>
+</div>
+
+</section>
+

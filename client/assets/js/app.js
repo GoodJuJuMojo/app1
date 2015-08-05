@@ -61,6 +61,17 @@ angular.module('application')
     }
   });
 
+angular.module('application')
+  .service('eventsService', function() {
+    var events = [];
+    this.setEvents = function(data) {
+      events = data;
+    }
+    this.getEvents = function() {
+      return events;
+    }
+  });
+
 // account service
 angular.module('application')
   
@@ -85,8 +96,8 @@ angular.module('application').value('loggedIn', 'xyz');
 /***********************************************************************/
 /* Head Controller                                                     */
 
-angular.module('application').controller('HeadController', ['$rootScope', '$scope', '$timeout', '$stateParams', '$state', '$controller', 'loggedIn', 'accountService' ,
-  function ($rootScope, $scope, $timeout, $stateParams, $state, $controller, loggedIn, accountService) {
+angular.module('application').controller('HeadController', ['$rootScope', '$scope', '$timeout', '$stateParams', '$state', '$controller', 'loggedIn', 'accountService', 'recordService', 'eventsService',
+  function ($rootScope, $scope, $timeout, $stateParams, $state, $controller, loggedIn, accountService, recordService, eventsService) {
 
     console.log('...in HeadController...');
 
@@ -97,6 +108,18 @@ angular.module('application').controller('HeadController', ['$rootScope', '$scop
     $rootScope.accountStatus = accountService.getAccountStatus();
 
     console.log('x...in HeadController...');
+
+    $scope.dj = "dominic";
+    $scope.Test = function(test) {
+      console.log('in HeadController', $scope);
+      console.log(eventsService.getEvents());
+      console.log($rootScope.pupilNames);
+
+    };
+
+    $scope.pupilNames = $rootScope.pupilNames;
+    console.log($scope.pupilNames);
+
 
   }
 
@@ -145,10 +168,10 @@ $rootScope.roo == "rsrrsrs";
 /* Login Controller                                                    */
 
 angular.module('application').controller('LoginController', LoginController);
-LoginController.$inject = ['$rootScope', '$scope', '$timeout', '$stateParams', '$state', '$controller', 'loggedIn', 'accountService', 'recordService'];
-function LoginController($rootScope, $scope, $timeout, $stateParams, $state, $controller, loggedIn, accountService, recordService) {
+LoginController.$inject = ['$rootScope', '$scope', '$timeout', '$stateParams', '$state', '$controller', 'loggedIn', 'accountService', 'recordService', 'eventsService'];
+function LoginController($rootScope, $scope, $timeout, $stateParams, $state, $controller, loggedIn, accountService, recordService, eventsService) {
   angular.extend(this, $controller('DefaultController', {
-      $rootScope: $rootScope, $scope: $scope, $timeout: $timeout, $stateParams: $stateParams, $state: $state, $loggedIn: loggedIn, $accountService: accountService, $recordService: recordService
+      $rootScope: $rootScope, $scope: $scope, $timeout: $timeout, $stateParams: $stateParams, $state: $state, $loggedIn: loggedIn, $accountService: accountService, $recordService: recordService, $eventsService: eventsService
       })
   );
 
@@ -168,8 +191,30 @@ if ($state.$current.data.vars.name == 'login') {
 
 $scope.test = 'test';
 
+function add (a,b) {
+  return a + b;
+}
+
+function pupilNames(events) {
+  var pupils = [];
+  var pn = "";
+  for (var prop in events) {
+    console.log('e: ', events[prop].name);
+    pn = events[prop].name;
+    console.log(pn, ' ', pupils.indexOf(pn));
+    if (pupils.indexOf(pn) == -1) {
+      console.log('n:', pn);
+      pupils.push(pn);
+      console.log('p:', pupils);
+    }
+  }
+  return pupils.sort();
+}
+
+
   $scope.Login = function(username, password, code) {
 
+    console.log('ans = ', add(1,3));
     var response = {};
     
     console.log('...in Login...', response);
@@ -190,139 +235,206 @@ $scope.test = 'test';
     if ($scope.password !== 'bbb') {
       $scope.showstatus += ' Invalid Password';
     };
-
-  var serverRecordData = [
+  
+    var serverRecordData = 
+      [      
+        {
+          day: "Mon",
+          dom: "27",
+          pupils: [{"c":"c", "i":"CB"}],
+          messages:[{"c":"c", "i":"CB", "m":"It’s that time of year again & we need your help. The school is running a fundraising day on the 8th of September. We’d love to see you all there  - Fun for all the family."}]
+        },
+        {
+          day: "Tue",
+          dom: "28",
+          pupils: [],
+          messages:[]
+        },
+        {
+          day: "Wed",
+          dom: "29",
+          pupils: [{"c":"c", "i":"CB"}],
+          messages:[{"c":"c", "i":"CB", "m":"School Clean Up Day - Notice to all parents - The school is having its annual spring clean day and we would love volunteers to help out on the day. Please reply with  details and availability"}]
+        },
+        {
+          day: "Thu",
+          dom: "30",
+          pupils: [{"c":"a", "i":"AB"},{"c":"b", "i":"BB"},{"c":"c", "i":"CB"}],
+          messages:[{"c":"a", "i":"AB", "m":"Warning  - We have have a recent outbreak of headlice in our class recently. I would urge all parents to be vigilant and to read the material provided."}, {"c":"b", "i":"BB", "m":"Warning  - We have have a recent outbreak of headlice in our class recently. I would urge all parents to be vigilant and to read the material provided."}, {"c":"c", "i":"CB", "m":"message about"}]
+        },
+        {
+          day: "Fri",
+          dom: "31",
+          pupils: [{"c":"b", "i":"BB"}],
+          messages:[{"c":"b", "i":"BB", "m":"message about"}]
+        },
+        {
+          day: "Sat",
+          dom: "01",
+          pupils: [],
+          messages:[]
+        },
+        {
+          day: "Sun",
+          dom: "02",
+          pupils: [],
+          messages:[]
+        },
+        {
+          day: "Mon",
+          dom: "03",
+          pupils: [{"c":"c", "i":"CB"}],
+          messages:[{"c":"c", "i":"CB", "m":"It’s that time of year again & we need your help. The school is running a fundraising day on the 8th of September. We’d love to see you all there  - Fun for all the family."}]
+        },
+        {
+          day: "Tue",
+          dom: "04",
+          pupils: [],
+          messages:[]
+        },
+        {
+          day: "Wed",
+          dom: "05",
+          pupils: [{"c":"c", "i":"CB"}],
+          messages:[{"c":"c", "i":"CB", "m":"School Clean Up Day - Notice to all parents - The school is having its annual spring clean day and we would love volunteers to help out on the day. Please reply with  details and availability"}]
+        },
+        {
+          day: "Thu",
+          dom: "06",
+          pupils: [{"c":"a", "i":"AB"},{"c":"b", "i":"BB"},{"c":"c", "i":"CB"}],
+          messages:[{"c":"a", "i":"AB", "m":"Warning  - We have have a recent outbreak of headlice in our class recently. I would urge all parents to be vigilant and to read the material provided."}, {"c":"b", "i":"BB", "m":"Warning  - We have have a recent outbreak of headlice in our class recently. I would urge all parents to be vigilant and to read the material provided."}, {"c":"c", "i":"CB", "m":"message about"}]
+        },
+        {
+          day: "Fri",
+          dom: "07",
+          pupils: [{"c":"b", "i":"BB"}],
+          messages:[{"c":"b", "i":"BB", "m":"message about"}]
+        },
+        {
+          day: "Sat",
+          dom: "08",
+          pupils: [],
+          messages:[]
+        },
+        {
+          day: "Sun",
+          dom: "09",
+          pupils: [],
+          messages:[]
+        },
+        {
+          day: "Mon",
+          dom: "10",
+          pupils: [{"c":"b", "i":"BB"},{"c":"c", "i":"CB"}],
+          messages:[{"c":"b", "i":"BB", "m":"message about"},{"c":"c", "i":"CB", "m":"Field Trip  - Update - There has been a bad weather warning for next monday, so can all pupils be reminded to bring light rain gear in preparation."}]
+        },
+        {
+          day: "Tue",
+          dom: "11",
+          pupils: [],
+          messages:[]
+        },
+        {
+          day: "Wed",
+          dom: "12",
+          pupils: [{"c":"c", "i":"CB"}],
+          messages:[{"c":"c", "i":"CB", "m":"We are delighted to announce that Don Conroy will be making a special visit to the school next week to talk to the pupils about conservation. Each pupil will be taking part in a bird feeder project at home. Details to follow."}]
+        },
+        {
+          day: "Thu",
+          dom: "13",
+          pupils: [],
+          messages:[]
+        },
+        {
+          day: "Fri",
+          dom: "14",
+          pupils: [{"c":"a", "i":"AB"},{"c":"b", "i":"BB"},{"c":"c", "i":"CB"}],
+          messages:[{"c":"a", "i":"AB", "m":"Healthy eating policy in effect. Can all parents please ensure that lunches contain healthy options."}, {"c":"b", "i":"BB", "m":""}, {"c":"c", "i":"CB", "m":"Hi, I have noticed some disruptive behaviour over the last few weeks and i’d like a chance to discuss it. "}]
+        },
+        {
+          day: "Sat",
+          dom: "15",
+          pupils: [],
+          messages:[]
+        },
+        {
+          day: "Sun",
+          dom: "16",
+          pupils: [],
+          messages:[]
+        },
+        {
+          day: "Mon",
+          dom: "17",
+          pupils: [{"c":"b", "i":"BB"},{"c":"c", "i":"CB"}],
+          messages:[{"c":"b", "i":"BB", "m":"message about"}, {"c":"c", "i":"CB", "m":"Parent/Teacher meeting taking place on the 16th. Please confirm availability."}]
+        },
+        {
+          day: "Tue",
+          dom: "18",
+          pupils: [{"c":"a", "i":"AB"},{"c":"b", "i":"BB"}],
+          messages:[{"c":"a", "i":"AB", "m":"message about"}, {"c":"b", "i":"BB", "m":"message about"}]
+        },
+        {
+          day: "Wed",
+          dom: "19",
+          pupils: [{"c":"c", "i":"CB"}],
+          messages:[{"c":"c", "i":"CB", "m":"message about"}]
+        },
+        {
+          day: "Thu",
+          dom: "20",
+          pupils: [],
+          messages:[]
+        },
+        {
+          day: "Fri",
+          dom: "21",
+          pupils: [{"c":"b", "i":"BB"}],
+          messages:[{"c":"b", "i":"BB", "m":"message about"}]
+        },
+        {
+          day: "Sat",
+          dom: "22",
+          pupils: [],
+          messages:[]
+        },{
+          day: "Sun",
+          dom: "23",
+          pupils: [],
+          messages:[]
+        }
+      ];
       
-      
-      {
-        day: "Mon",
-        dom: "20",
-        pupils: [{"c":"c", "i":"CB"}],
-        messages:[{"c":"c", "i":"CB", "m":"It’s that time of year again & we need your help. The school is running a fundraising day on the 8th of September. We’d love to see you all there  - Fun for all the family."}]
-      },
-      {
-        day: "Tue",
-        dom: "21",
-        pupils: [],
-        messages:[]
-      },
-      {
-        day: "Wed",
-        dom: "22",
-        pupils: [{"c":"c", "i":"CB"}],
-        messages:[{"c":"c", "i":"CB", "m":"School Clean Up Day - Notice to all parents - The school is having its annual spring clean day and we would love volunteers to help out on the day. Please reply with  details and availability"}]
-      },
-      {
-        day: "Thu",
-        dom: "23",
-        pupils: [{"c":"a", "i":"AB"},{"c":"b", "i":"BB"},{"c":"c", "i":"CB"}],
-        messages:[{"c":"a", "i":"AB", "m":"Warning  - We have have a recent outbreak of headlice in our class recently. I would urge all parents to be vigilant and to read the material provided."}, {"c":"b", "i":"BB", "m":"Warning  - We have have a recent outbreak of headlice in our class recently. I would urge all parents to be vigilant and to read the material provided."}, {"c":"c", "i":"CB", "m":"message about"}]
-      },
-      {
-        day: "Fri",
-        dom: "24",
-        pupils: [{"c":"b", "i":"BB"}],
-        messages:[{"c":"b", "i":"BB", "m":"message about"}]
-      },
-      {
-        day: "Sat",
-        dom: "25",
-        pupils: [],
-        messages:[]
-      },
-      {
-        day: "Sun",
-        dom: "26",
-        pupils: [],
-        messages:[]
-      },
-      {
-        day: "Mon",
-        dom: "27",
-        pupils: [{"c":"b", "i":"BB"},{"c":"c", "i":"CB"}],
-        messages:[{"c":"b", "i":"BB", "m":"message about"},{"c":"c", "i":"CB", "m":"Field Trip  - Update - There has been a bad weather warning for next monday, so can all pupils be reminded to bring light rain gear in preparation."}]
-      },
-      {
-        day: "Tue",
-        dom: "28",
-        pupils: [],
-        messages:[]
-      },
-      {
-        day: "Wed",
-        dom: "29",
-        pupils: [{"c":"c", "i":"CB"}],
-        messages:[{"c":"c", "i":"CB", "m":"We are delighted to announce that Don Conroy will be making a special visit to the school next week to talk to the pupils about conservation. Each pupil will be taking part in a bird feeder project at home. Details to follow."}]
-      },
-      {
-        day: "Thu",
-        dom: "30",
-        pupils: [],
-        messages:[]
-      },
-      {
-        day: "Fri",
-        dom: "31",
-        pupils: [{"c":"a", "i":"AB"},{"c":"b", "i":"BB"},{"c":"c", "i":"CB"}],
-        messages:[{"c":"a", "i":"AB", "m":"Healthy eating policy in effect. Can all parents please ensure that lunches contain healthy options."}, {"c":"b", "i":"BB", "m":""}, {"c":"c", "i":"CB", "m":"Hi, I have noticed some disruptive behaviour over the last few weeks and i’d like a chance to discuss it. "}]
-      },
-      {
-        day: "Sat",
-        dom: "01",
-        pupils: [],
-        messages:[]
-      },
-      {
-        day: "Sun",
-        dom: "02",
-        pupils: [],
-        messages:[]
-      },
-      {
-        day: "Mon",
-        dom: "03",
-        pupils: [{"c":"b", "i":"BB"},{"c":"c", "i":"CB"}],
-        messages:[{"c":"b", "i":"BB", "m":"message about"}, {"c":"c", "i":"CB", "m":"Parent/Teacher meeting taking place on the 16th. Please confirm availability."}]
-      },
-      {
-        day: "Tue",
-        dom: "04",
-        pupils: [{"c":"a", "i":"AB"},{"c":"b", "i":"BB"}],
-        messages:[{"c":"a", "i":"AB", "m":"message about"}, {"c":"b", "i":"BB", "m":"message about"}]
-      },
-      {
-        day: "Wed",
-        dom: "05",
-        pupils: [{"c":"c", "i":"CB"}],
-        messages:[{"c":"c", "i":"CB", "m":"message about"}]
-      },
-      {
-        day: "Thu",
-        dom: "06",
-        pupils: [],
-        messages:[]
-      },
-      {
-        day: "Fri",
-        dom: "07",
-        pupils: [{"c":"b", "i":"BB"}],
-        messages:[{"c":"b", "i":"BB", "m":"message about"}]
-      },
-      {
-        day: "Sat",
-        dom: "08",
-        pupils: [],
-        messages:[]
-      },{
-        day: "Sun",
-        dom: "09",
-        pupils: [],
-        messages:[]
-      }
-
-    ];
-    
     recordService.setRecordData(serverRecordData); 
+    
+
+    var serverEvents = 
+      [
+        { date: "2015-07-20", dateEnd: "", name: "Charlie Brennan", initials: "CB", class: "Sr Infants", type: "HW", subject: "English", title: "Essay on Nonsense", content:"300 words", note:"", link: "", image: ""},
+        { date: "2015-07-20", dateEnd: "", name: "Charlie Brennan", initials: "CB", class: "Sr Infants", type: "HW", subject: "Irish", title: "Essay on Nonsense", content:"300 words", note:"", link: "", image: ""},
+        { date: "2015-07-20", dateEnd: "", name: "Charlie Brennan", initials: "CB", class: "Sr Infants", type: "HW", subject: "Maths", title: "Essay on Nonsense", content:"300 words", note:"", link: "", image: ""},
+        { date: "2015-07-20", dateEnd: "", name: "Alice Brennan", initials: "AB", class: "Sr Infants", type: "HW", subject: "English", title: "Essay on Nonsense", content:"300 words", note:"", link: "", image: ""},
+        { date: "2015-07-20", dateEnd: "", name: "Charlie Brennan", initials: "CB", class: "Sr Infants", type: "HW", subject: "English", title: "Essay on Nonsense", content:"300 words", note:"", link: "", image: ""},
+        { date: "2015-07-20", dateEnd: "", name: "Charlie Brennan", initials: "CB", class: "Sr Infants", type: "HW", subject: "English", title: "Essay on Nonsense", content:"300 words", note:"", link: "", image: ""},
+        { date: "2015-07-20", dateEnd: "", name: "Charlie Brennan", initials: "CB", class: "Sr Infants", type: "HW", subject: "English", title: "Essay on Nonsense", content:"300 words", note:"", link: "", image: ""},
+        { date: "2015-07-20", dateEnd: "", name: "Charlie Brennan", initials: "CB", class: "Sr Infants", type: "HW", subject: "English", title: "Essay on Nonsense", content:"300 words", note:"", link: "", image: ""},
+        { date: "2015-07-20", dateEnd: "", name: "Charlie Brennan", initials: "CB", class: "Sr Infants", type: "HW", subject: "English", title: "Essay on Nonsense", content:"300 words", note:"", link: "", image: ""},
+        { date: "2015-07-20", dateEnd: "", name: "Charlie Brennan", initials: "CB", class: "Sr Infants", type: "HW", subject: "English", title: "Essay on Nonsense", content:"300 words", note:"", link: "", image: ""},
+        { date: "2015-07-20", dateEnd: "", name: "Charlie Brennan", initials: "CB", class: "Sr Infants", type: "HW", subject: "English", title: "Essay on Nonsense", content:"300 words", note:"", link: "", image: ""},
+        { date: "2015-07-20", dateEnd: "", name: "Charlie Brennan", initials: "CB", class: "Sr Infants", type: "HW", subject: "English", title: "Essay on Nonsense", content:"300 words", note:"", link: "", image: ""}
+      ];
+
+
+      
+
+
+    eventsService.setEvents(serverEvents);
+
+    console.log('pupils:', pupilNames(serverEvents));
+    $rootScope.pupilNames = pupilNames(serverEvents);
+
     accountService.setAccountStatus("y");
     $rootScope.accountStatus = accountService.getAccountStatus();
 
@@ -501,6 +613,12 @@ function CalendarController($scope, $rootScope, $timeout, $stateParams, $state, 
     $scope.weekC = recordsNextWeek;      
   };
 
+
+
+  $scope.Test = function(test) {
+      console.log('in CalendarController');
+    };
+
 }
 
 
@@ -509,11 +627,11 @@ function CalendarController($scope, $rootScope, $timeout, $stateParams, $state, 
 
 
 /***********************************************************************/
-/* CalMonth Controller                                                 */
+/* Yearview Controller                                                 */
 
-angular.module('application').controller('CalMonthController', CalMonthController);
-CalMonthController.$inject = ['$scope', '$stateParams', '$state', '$controller', 'loggedIn' , 'recordService'];
-function CalMonthController($scope, $stateParams, $state, $controller, loggedIn, recordService) {
+angular.module('application').controller('YearviewController', YearviewController);
+YearviewController.$inject = ['$scope', '$stateParams', '$state', '$controller', 'loggedIn' , 'recordService'];
+function YearviewController($scope, $stateParams, $state, $controller, loggedIn, recordService) {
   angular.extend(this, $controller('DefaultController', {
     $scope: $scope, $stateParams: $stateParams, $state: $state, $loggedIn: loggedIn, $recordService: recordService
     })
@@ -523,7 +641,7 @@ function CalMonthController($scope, $stateParams, $state, $controller, loggedIn,
 
   $scope.options = {
     weekOffset: 1,
-    daysOfTheWeek: ['S','M', 'T', 'W', 'T', 'F', 'S'],
+    daysOfTheWeek: ['SUN','MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'],
     constraints: {
         startDate: moment().subtract(1, 'months').format('YYYY-MM-15'),
         endDate: moment().add(12, 'months').format('YYYY-MM-15')
@@ -534,14 +652,25 @@ function CalMonthController($scope, $stateParams, $state, $controller, loggedIn,
 
 
   $scope.events = [
-      { date: "2015-07-20", name: "CB", title: "It’s that time of year again & we need your help. The school is running a fundraising day on the 8th of September. We’d love to see you all there - Fun for all the family."},
-      { date: "2015-07-22", name: "CB", title: "School Clean Up Day - Notice to all parents - The school is having its annual spring clean day and we would love volunteers to help out on the day. Please reply with details and availability"},
-      { date: "2015-07-23", name: "AB", title: "Warning - We have have a recent outbreak of headlice in our class recently. I would urge all parents to be vigilant and to read the material provided."},
-      { date: "2015-07-23", name: "BB", title: "Warning - We have have a recent outbreak of headlice in our class recently. I would urge all parents to be vigilant and to read the material provided."},
-      { date: "2015-07-27", name: "CB", title: "Field Trip - Update - There has been a bad weather warning for next monday, so can all pupils be reminded to bring light rain gear in preparation."},
-      { date: "2015-07-29", name: "CB", title: "We are delighted to announce that Don Conroy will be making a special visit to the school next week to talk to the pupils about conservation. Each pupil will be taking part in a bird feeder project at home. Details to follow."},
-      { date: "2015-07-31", name: "AB", title: "Healthy eating policy in effect. Can all parents please ensure that lunches contain healthy options."},
-      { date: "2015-07-31", name: "CB", title: "Hi, I have noticed some disruptive behaviour over the last few weeks and i’d like a chance to discuss it."}
+      { date: "2015-09-01", name: "CB", title: "First day in School"},
+      { date: "2015-10-26", name: "CB", title: "Mid-Term Break - Begins"},
+      { date: "2015-10-30", name: "CB", title: "Mid-Term Break - Ends"},
+      { date: "2015-12-23", name: "CB", title: "Half day at 12.00"},
+      { date: "2015-12-23", name: "CB", title: "Christmas Holiday - Begins"},
+      { date: "2016-01-05", name: "CB", title: "Christmas Holiday - Ends"},
+      { date: "2016-01-06", name: "CB", title: "Back to School"},
+      { date: "2016-02-18", name: "CB", title: "Mid-Term Break - Begins"},
+      { date: "2016-02-19", name: "CB", title: "Mid-Term Break - Ends"},
+      { date: "2016-02-22", name: "CB", title: "Back to School"},
+      { date: "2016-03-17", name: "CB", title: "St. Patrick's Day - School closed"},
+      { date: "2016-03-18", name: "CB", title: "Easter Holiday - Begins"},
+      { date: "2016-04-01", name: "CB", title: "Easter Holiday - Ends"},
+      { date: "2016-04-04", name: "CB", title: "Back to School"},
+      { date: "2016-05-02", name: "CB", title: "Holiday - School closed"},
+      { date: "2016-05-03", name: "CB", title: "School Holiday - Begins"},
+      { date: "2016-06-05", name: "CB", title: "School Holiday - Ends"},
+      { date: "2016-06-06", name: "CB", title: "Holiday - School closed"},
+      { date: "2016-06-30", name: "CB", title: "Half day at 12.00 - Summer Holiday"}
       // { date: moment().add(3, 'days').format(), title: "Happy days" },
       // { date: moment().subtract(5, 'days').format(), title: "Good old days" },
       // { date: moment().subtract(5, 'days').format(), title: "And some more" },
@@ -567,8 +696,225 @@ function CalMonthController($scope, $stateParams, $state, $controller, loggedIn,
 }
 
 
-/* End CalMonth Controller                                             */
+/* End Yearview Controller                                             */
 /***********************************************************************/
+
+
+/***********************************************************************/
+/* Homework Controller                                                 */
+
+angular.module('application').controller('HomeworkController', HomeworkController);
+HomeworkController.$inject = ['$scope', '$stateParams', '$state', '$controller'];
+function HomeworkController($scope, $stateParams, $state, $controller) {
+  angular.extend(this, $controller('DefaultController', {
+    $scope: $scope, $stateParams: $stateParams, $state: $state
+    })
+  );
+
+
+console.log($stateParams.kid);
+var kid = $stateParams.kid;    
+var childDay = ["MON", "MON", "MON"];
+var childDom = ["20", "20", "20"];
+var childName = ["Aoife Brennan", "Bren Brennan", "Charlie Brennan"];
+var childClass = ["Jr Infants", "Sr Infants", "5th Class"];
+
+var journal = [
+[
+  {subject: "English", 
+    topic: [
+      {title: "Reading",
+        content: [ 
+          {item: "first item"}, 
+          {item: "second item"},
+          {item: "third item"}
+        ]
+      },
+      {title: "Learning",
+        content: [
+          {item: "first item"}, 
+          {item: "second item"},
+          {item: "third item"} 
+        ]
+      }
+    ]
+  },
+  {subject: "Irish", 
+    topic: [
+      {title: "Reading",
+        content: [ 
+          {item: "first item"}, 
+          {item: "second item"},
+          {item: "third item"}
+        ]
+      },
+      {title: "Learning",
+        content: [
+          {item: "first item"}, 
+          {item: "second item"},
+          {item: "third item"} 
+        ]
+      }
+    ]
+  },
+  {subject: "Maths", 
+    topic: [
+      {title: "Reading",
+        content: [ 
+          {item: "first item"}, 
+          {item: "second item"},
+          {item: "third item"}
+        ]
+      },
+      {title: "Learning",
+        content: [
+          {item: "first item"}, 
+          {item: "second item"},
+          {item: "third item"} 
+        ]
+      }
+    ]
+    }    
+  ],
+
+ [
+  {subject: "English", 
+    topic: [
+      {title: "Reading",
+        content: [ 
+          {item: "first item"}, 
+          {item: "second item"},
+          {item: "third item"}
+        ]
+      },
+      {title: "Learning",
+        content: [
+          {item: "first item"}, 
+          {item: "second item"},
+          {item: "third item"} 
+        ]
+      }
+    ]
+  },
+  {subject: "Irish", 
+    topic: [
+      {title: "Reading",
+        content: [ 
+          {item: "first item"}, 
+          {item: "second item"},
+          {item: "third item"}
+        ]
+      },
+      {title: "Learning",
+        content: [
+          {item: "first item"}, 
+          {item: "second item"},
+          {item: "third item"} 
+        ]
+      }
+    ]
+  },
+  {subject: "Maths", 
+    topic: [
+      {title: "Reading",
+        content: [ 
+          {item: "first item"}, 
+          {item: "second item"},
+          {item: "third item"}
+        ]
+      },
+      {title: "Learning",
+        content: [
+          {item: "first item"}, 
+          {item: "second item"},
+          {item: "third item"} 
+        ]
+      }
+    ]
+  }    
+  ],
+
+ [
+  {subject: "English", 
+    topic: [
+      {title: "Reading",
+        content: [ 
+          {item: "The children are to read TWO pages from their English reader per night, starting with pages 10 & 11"}
+        ]
+      },
+      {title: "Poem to Learn",
+        content: [
+          {item: "‘Feena Begins to Knit’"} 
+        ]
+      },
+      {title: "Site words to learn",
+        content: [
+          {item: "These are the words to be read by the children from 2/2 - 6/2"}, 
+          {item: "They,  Don’t"},
+          {item: "Have,  Got"},
+          {item: "Check, Yes"}
+        ]
+      }
+    ]
+  },
+  {subject: "Irish", 
+    topic: [
+      {title: "Reading",
+        content: [ 
+          {item: "Seo na focail atá le foghlaim ag na pásitI ó 2/2 - 6/2"}, 
+          {item: "These are the words to be read by the children from 2/2 - 6/2"},
+          {item: "liom,  isteach"},
+          {item: "níl, mamaí"},
+          {item: "anois, le"}
+        ]
+      }
+    ]
+  },
+  {subject: "Maths", 
+    topic: [
+      {title: "Learning",
+        content: [ 
+          {item: "Maths sheet"},
+          {item: ""}
+        ]
+      }
+    ]
+  }    
+  ]
+]
+
+$scope.journal = journal[kid];
+console.log($scope.journal[kid]);
+$scope.day = childDay[kid];
+$scope.dom = childDom[kid];
+$scope.name = childName[kid];
+$scope.class = childClass[kid];
+
+
+  $scope.Test = function(child){
+    $scope.day = childDay[child];
+    $scope.dom = childDom[child];
+    $scope.name = childName[child];
+    $scope.class = childClass[child];
+
+    console.log('...in Homework...Test...', Homework3);
+    $scope.showstatus = 'zzzzzzz';
+
+  };
+
+}
+
+/* End Homework Controller                                             */
+/***********************************************************************/
+
+
+
+
+
+
+
+
+
 
 
 /***********************************************************************/
@@ -697,6 +1043,72 @@ function TchalkbackController($scope, $stateParams, $state, $controller, loggedI
 
 /* End Tchalkback Controller                                           */
 /***********************************************************************/
+
+
+/***********************************************************************/
+/* Quicklook Controller                                                     */
+
+angular.module('application').controller('QuicklookController', ['$rootScope', '$scope', '$timeout', '$stateParams', '$state', '$controller', 'loggedIn', 'accountService' ,
+  function ($rootScope, $scope, $timeout, $stateParams, $state, $controller, loggedIn, accountService) {
+
+    console.log('...in QuicklookController...');
+
+    accountService.setAccountStatus("");
+
+    // $scope.accountStatus = accountService.getAccountStatus();
+
+    $rootScope.accountStatus = accountService.getAccountStatus();
+
+    console.log('x...in QuicklookController...');
+
+    $scope.Test = function(test) {
+      console.log('in QuicklookController Test:', $scope.pupilNames, $rootScope.pupilNames );
+    };
+
+
+
+    }
+    
+
+]);
+
+    // $scope.options = {
+    //   weekOffset: 1,
+    //   daysOfTheWeek: ['S','M', 'T', 'W', 'T', 'F', 'S'],
+    //   constraints: {
+    //       startDate: moment().subtract(1, 'months').format('YYYY-MM-15'),
+    //       endDate: moment().add(12, 'months').format('YYYY-MM-15')
+    //   }
+    // };
+
+    // $scope.events = [
+    //     { date: moment().add(3, 'days').format(), title: "Happy days" },
+    //     { date: moment().subtract(5, 'days').format(), title: "Good old days" },
+    //     { date: moment().subtract(5, 'days').format(), title: "And some more" }
+    // ];
+
+    // $scope.showEvents = function(events) {
+    //     alert(events.map(function(e) { return e.title }).join("\n"));
+    // };
+
+    // $scope.Test = function(test){
+    //       console.log('in QuicklookController loggedIn:', loggedIn );
+          
+    //       var response = {};
+    //       loggedIn = 'new value';
+    //       console.log('...in Quicklook...', test, loggedIn);
+    //       console.log(recordService.getRecordData());
+    //       $scope.showstatus = 'zzzzzzz';
+    //       console.log($scope.events);
+        
+    //     };
+
+/* End  Quicklook Controller                                            */
+/************************************************************************/
+
+
+
+
 
 
 

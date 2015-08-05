@@ -4,7 +4,11 @@ url: /calendar
 controller: CalendarController
 ---
 
-<div class="grid-container" style="margin: 0;">
+<!-- <div class="grid-content"> -->
+<!-- <div class="grid-container"> -->
+
+
+<div class="" style="margin: 0;">
 
   <!-- <button ng-click="Calendar()" >C2</button> -->
   <button ng-click="prevWeek()" ng-disabled="disablePrev">Last Week</button>
@@ -31,14 +35,20 @@ controller: CalendarController
         <span class="tc-ghost">.</span> 
         <span ng-repeat="pupil in rec.pupils" class="tc-kids pc{{pupil['c']}}">{{pupil['i']}}</span>
       </a>
-        <span  zf-modal="" id="{{$index}}">
-          <a zf-close="{{$index}}"><button>Close</button></a>
+
+        <span  zf-modal="" id="{{$index}}" class="tiny dialog">
+
+          <a zf-close="{{$index}}"><img src="assets/img/tchalk-close_X_button-navy.svg" height="45" width="30" class="left"></a>
           <p></p>
-            <ul>
-              <li ng-repeat="message in rec.messages"><span class="tc-kids pc{{message['c']}}">{{message['i']}}</span>{{message['m']}}</li>
+            <ul class="tc-message">
+              <li ng-repeat="message in rec.messages">
+                <span class="tc-kids pc{{message['c']}}">{{message['i']}}</span>
+                <span class="">{{message['m']}}</span>
+              </li>
             </ul> 
                  
-        </span>      
+        </span>  
+
     </li>    
 
   </ul>
@@ -71,4 +81,21 @@ controller: CalendarController
   </ul>
 
 </section>
-</div>
+
+
+      <!-- <div >
+        <zf-panel id="quicklook-panel" position="left" ng-controller="QuicklookController as ql">
+          <a zf-close="" class="close-button">CLOSE</a>
+          <p></p>
+          <p id="settings-header">QUICK LOOK CHILD'S SCHEDULE</p>
+          <button ng-click="Test()">show</button>
+          <ul>
+            <li ng-repeat="pup in pupilNames"><a ui-sref="account" zf-close="settings-panel">{{pup}}</a></li>
+            
+          </ul>
+          
+        </zf-panel>
+      </div> -->
+
+  <!-- </div> -->
+<!-- </div> -->

@@ -109,6 +109,7 @@ $primary-color: #1d8495;
 // $gray: #dfdfdf;
 // $gray-dark: darken($gray, 8);
 // $gray-light: lighten($gray, 8);
+$navy: #3c4f60;
 $turquoise: #5bc5bf;
 $turquoise-dark: #1d8495;
 $cream: #f9ecd1;
@@ -119,6 +120,7 @@ $grey: #e6e6e6;
 
 // We use these to make sure border radius matches unless we want it different.
 // $global-radius: 4px;
+$global-radius: 7px;
 // $global-rounded: 1000px;
 
 // We use this for default spacing
@@ -242,6 +244,7 @@ $grey: #e6e6e6;
 // - - - - - - - - - - - - - - -
 
 // $container-width: rem-calc(900);
+$container-width: rem-calc(600);
 // $block-padding: $global-padding;
 // $total-columns: 12;
 // $block-grid-max-size: 6; 
@@ -474,6 +477,7 @@ $menubar2-color: isitlight($menubar2-background);
 $modal-background: #D1C8B7;
 // $modal-border: 0;
 // $modal-radius: 0px;
+$modal-radius: 13px;
 // $modal-shadow: none;
 // $modal-zindex: 1000;
 // $modal-sizes: (

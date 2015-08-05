@@ -29,11 +29,25 @@
 	src: url('../fonts/ProximaNova-Regular.otf') ;
 }
 
+@font-face {
+    font-family: 'foxholeregular';
+    /*src: url('../fonts/../fonts/foxhole-regular-webfont.eot');*/
+    /*src: url('../fonts/foxhole-regular-webfont.eot?#iefix'),*/
+    src: url('../fonts/foxhole-regular-webfont.woff2'),
+         url('../fonts/foxhole-regular-webfont.woff'),
+         url('../fonts/foxhole-regular-webfont.ttf'),
+         url('../fonts/foxhole-regular-webfont.svg#foxholeregular');
+    font-weight: normal;
+    font-style: normal;
+}
 
 body {
 	background: $grey;
-	font-family: "proximanova", "montserrat", "frente";
+	font-family: "proximanova", "montserrat", "foxholeregular", "frente";
+	background-image: url('../img/landing-page-bg-640.png');
+	background-size: 384px 640px;
 }
+
 .menu-bar.primary {
 	background: $grey;
 }
@@ -42,14 +56,24 @@ body {
       background: $grey;
  }
 
+.title-bar {
+	background: $grey;
+	border-bottom-style: none;
+	/*padding-left: 10px;*/
+}
+
 .tc-logo {
 	padding: 5px;
 }
 
 #settings-panel ul {
-	color: #f9ecd1;
+	color: $cream;
 	list-style-type: none;
 	line-height: 300%;
+}
+
+#settings-panel a {
+	color: $cream;
 }
 
 #settings-header{
@@ -58,19 +82,29 @@ body {
 	padding-top: 40px;
 }
 
-#settings-panel a {
-	color: #f9ecd1;
+#quicklook-panel ul {
+	list-style-type: none;
+	line-height: 400%;
 }
+
+
+
 .tc-spacer {
 	visibility: hidden;
 }
 
 .tc-landing {
-	list-style: none;
+	/*background-image: url('../img/landing-page-bg-640.png');*/
+	/*background-size: 384px 640px;*/
 }
 
-.tc-landing li {
-	padding-top:20px;
+.tc-landing  {
+	/*list-style: none;*/
+}
+
+.tc-landing {
+	padding-top: 20px;
+	padding-bottom: 20px;
 }
 
 .tc-ghost {
@@ -80,8 +114,50 @@ body {
 	margin: 7px;
 	width: 0;
 }
+
+.tc-hw-header {
+	color: #fff;
+}
+
+.tc-hw-date {
+	background-color: $turquoise-dark;
+}
+
+.tc-hw-name {
+	background-color: $navy;
+	text-align: center;
+	padding-top: 1em;
+}
+
+.tc-hw-class {
+	background-color: $turquoise;
+	text-align: left;
+	padding-top: 1em;
+
+}
+
+.tc-hw-journal {
+	padding-top: 1em;
+
+}
+
+.tc-hw-journal li {
+	list-style: none;
+	line-height: 110%;
+	margin-top: 10px;
+}
+
+.tc-hw-subject {
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+.tc-hw-topic {
+	font-weight: bold;
+}
+
 .tc-kids {
-	font-family: frente;
+	font-family: foxholeregular;
 	color: $yellow-light;
 	background: #6dc065;
 	align-items: center;
@@ -111,6 +187,7 @@ body {
 }
 
 .tc-cal-date {
+	padding-top: 0.5em;
 	vertical-align: top;
 	overflow: hidden;
 	display: inline-flex;
@@ -174,6 +251,7 @@ body {
 	border-width: 1px;
 	border-bottom-style: solid;
 	list-style: none;
+
 	height: 3.0rem;
 	/*display: inline-flex;*/
 	/*font-size: 1.5em;*/
@@ -182,6 +260,11 @@ body {
 .tc-days a {
 	color: $yellow-light;
 	padding: 8px;
+}
+
+.tc-message li {
+	list-style: none;
+	color: #000;
 }
 
 .tc-weeks {
@@ -237,58 +320,128 @@ body {
 	width: 40px;
 }
 
+.tc-ql-open {
+	padding-top: 20px;
+	float: right;
+}
+
+.tc-ql-icon {
+	margin-left: 30px;
+}
+
+
 /* ? */
 /*ul ul, ol ul {
   list-style-type: none;
   color: black;
 }*/
 
+/*.tc-yearview {
+	border: 1px solid $turquoise;
+}*/
 
 .clndr {
-  display: block;
-  margin: 0 auto;
-  max-width: 400px; }
-  .clndr .clndr-controls {
-    border-bottom: 1px solid #ccc;
-    position: relative; }
-    .clndr .clndr-controls .month {
-      padding: 12px 0;
-      text-align: center; }
-    .clndr .clndr-controls .clndr-previous-button, .clndr .clndr-controls .clndr-next-button {
-      cursor: pointer;
-      top: 0px;
-      left: 0px;
-      padding: 12px;
-      position: absolute; }
-    .clndr .clndr-controls .clndr-next-button {
-      left: auto;
-      right: 0px; }
-  .clndr .clndr-grid .days-of-the-week {
-    width: 100%; }
-    .clndr .clndr-grid .days-of-the-week .header-day {
-      float: left;
-      width: 14.28571%;
-      padding: 12px 0;
-      text-align: center; }
-  .clndr .days .day, .clndr .days .empty {
+	display: block;
+	margin: 0 auto;
+	max-width: 400px;
+	box-shadow: 10px 10px 0 10px  000;
+}
+
+.clndr .clndr-controls {
+	border-bottom: 1px solid $turquoise;
+	position: relative; 
+}
+
+.clndr .clndr-controls .month {
+	font-size: 24px;
+	color: $turquoise;
+	padding: 12px 0;
+	text-align: center; 
+}
+
+.clndr .clndr-controls .clndr-previous-button, .clndr .clndr-controls .clndr-next-button {
+	color: $turquoise;
+	font-size: 56px;
+	cursor: pointer;
+	top: -20px;
+	left: 0px;
+	padding: 12px;
+	position: absolute;
+ }
+ 
+ .clndr .clndr-controls .clndr-next-button {
+	left: auto;
+	right: 0px; 
+ }
+
+ .clndr .clndr-grid .days-of-the-week {
+ 	font-size: 10px;
+    width: 100%; 
+}
+
+.clndr .clndr-grid .days-of-the-week .header-day {
+	color: $brown;
+	float: left;
+	width: 14.28571%;
+	padding: 12px 0;
+	text-align: center; 
+}
+
+.clndr .days .day, .clndr .days .empty {
+	font-size: 24px;
+	color: $brown;
     float: left;
     width: 14.28571%;
     padding: 12px 0;
     position: relative;
-    text-align: center; }
-    .clndr .days .day.today, .clndr .days .empty.today {
-      background-color: #ccc; }
-    .clndr .days .day .event-indicator, .clndr .days .empty .event-indicator {
-      background-color: #3BB7E8;
-      border-radius: 100%;
-      color: #fff;
-      cursor: pointer;
-      font-size: 9px;
-      height: 15px;
-      line-height: 16px;
-      position: absolute;
-      right: 0px;
-      top: 0px;
-      width: 15px; }
-    .clndr .days .day.adjacent-month, .clndr .days .day.inactive, .clndr .days .empty.adjacent-month, .clndr .days .empty.inactive {
-      opacity: 0.3; }
+    text-align: center; 
+}
+
+.clndr .days .day.today, .clndr .days .empty.today {
+	background-color: #ccc; 
+}
+.clndr .days .day .event-indicator, .clndr .days .empty .event-indicator {
+	background-color: red;
+	border-radius: 100%;
+	color: #fff;
+	cursor: pointer;
+	font-size: 9px;
+	height: 15px;
+	line-height: 16px;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	width: 15px; 
+}
+.clndr .days .day.adjacent-month, .clndr .days .day.inactive, .clndr .days .empty.adjacent-month, .clndr .days .empty.inactive {
+	opacity: 0.3; 
+}
+
+
+
+
+.custom-notification {
+// Extend the base selector to get core styles
+@extend %notification;
+// Use the layout mixin to position and structure the notification
+@include notification-layout(
+$x: left, // Can be left, middle, or right
+$y: top, // Can be top or bottom
+$size: 400px, // Width of notification
+$offset: 1rem // Offset from the edge of the window
+);
+// Use the style mixin to style the notification
+@include notification-style(
+$background: $turquoise, // Background color
+$color: $cream, // Text color
+$padding: 1rem,
+$radius: 4px
+);
+.custom-notification-icon {
+@include notification-icon(
+$size: 50px, // Width and height of the icon
+$margin: 1rem, // Right-hand margin
+$align: top // Can be top, middle, or bottom
+);
+}
+}

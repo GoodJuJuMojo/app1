@@ -1,11 +1,11 @@
 ---
-name: calmonth
-url: /calmonth
-controller: CalMonthController
+name: yearview
+url: /yearview
+controller: YearviewController
 ---
 
-<div class="grid-container">
- <!--  <button ng-click="Test('aaa')">calmonth</button>
+<div class="grid-container tc-yearview">
+ <!--  <button ng-click="Test('aaa')">yearview</button>
 [1]{{loggedIn}}[2]{{events}}
 <div>{{options}}</div> -->
   <tien-clndr class="clndr" tien-clndr-object="clndr" tien-clndr-events="events" tien-clndr-options="options">
@@ -15,7 +15,7 @@ controller: CalMonthController
                               &lsaquo;
     </div>
     <div class="month">
-      {{month}}
+      {{month | uppercase}} {{year}}
     </div>
     <div class="clndr-next-button" ng-click="clndr.forward()">
       &rsaquo;

@@ -4,9 +4,10 @@ url: /account
 controller: AccountController
 ---
   
-<div class="vertical grid-block small-up-1">
-
-    <div class="grid-container">    
+<!-- <div class="vertical grid-block small-up-1">
+  <div class="grid-content">
+    <div class="grid-container">  -->   
+      <h2>MY ACCOUNT</h2>
       <form>
         
         <label></label>
@@ -42,7 +43,7 @@ controller: AccountController
           name="email"
           id="email"
           ng-model="email"
-          placeholder="E-MAIL"
+          placeholder="EMAIL"
           required>
 
         <label></label>
@@ -80,11 +81,12 @@ controller: AccountController
           ng-model="profile"
           placeholder="PUBLIC PROFILE"
           required>
+        
+        <a class="button" ng-click="Save()">SAVE</a>
 
       </form>
       
-    </div>
-
-    <a class="button" ng-click="Save()">SAVE</a>
-        
+<!--     </div>
+  </div>
 </div>
+ -->

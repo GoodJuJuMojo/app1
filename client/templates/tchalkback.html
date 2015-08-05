@@ -3,12 +3,52 @@ name: tchalkback
 url: /tchalkback
 controller: TchalkbackController
 ---
+<!-- <div class="grid-content">
+<div class="grid-container"> -->
+   <h2>TCHALKBACK</h2>
+      <form>
+        
+        <label></label>
+        <input 
+          type="text" 
+          name="username" 
+          id="username" 
+          ng-model="username"
+          placeholder="YOUR NAME"
+          required> 
 
-<div class="grid-container">
-  <h1>TCHALKBACK Page</h1>
-  
+        
+        <label></label>
+        <input 
+          type="email"
+          name="email"
+          id="email"
+          ng-model="email"
+          placeholder="EMAIL ADDRESS"
+          required>
 
-         
-  
-  <p class="lead">TCHALK v0.1</strong>.</p>
-</div>
+        <label></label>
+        <input 
+          type="text" 
+          name="phone" 
+          id="phone" 
+          ng-model="phone"
+          placeholder="TELEPHONE NUMBER"
+          required>
+
+        <label></label>
+        <input 
+          type="textarea"
+          rows="10"
+          cols="50" 
+          name="message" 
+          id="message" 
+          ng-model="message"
+          placeholder="YOUR MESSAGE"
+          required>
+        
+        <a class="button" ng-click="Save()">SEND MESSAGE</a>
+
+      </form>
+<!-- </div>
+</div> -->
