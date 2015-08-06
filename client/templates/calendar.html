@@ -4,28 +4,11 @@ url: /calendar
 controller: CalendarController
 ---
 
-<!-- <div class="grid-content"> -->
-<!-- <div class="grid-container"> -->
-
-
 <div class="" style="margin: 0;">
-
-  <!-- <button ng-click="Calendar()" >C2</button> -->
   <button ng-click="prevWeek()" ng-disabled="disablePrev">Last Week</button>
   <button ng-click="currWeek()" ng-disabled="disableCurr">This Week</button>
   <button ng-click="nextWeek()" ng-disabled="disableNext">Next Week</button>
-<!-- <section class="block-list"> -->
-<section>
 
-<!--   <zf-accordion auto-open="false" collapsible="true" multi-open="false" ng-repeat="rec in records">
-    zf-accordion-item title=
-          "{{rec.day}}  {{rec.pupils[0]['p']}}{{rec.pupils[1]['p']}}{{rec.pupils[2]['p']}}">{{rec.day}}
-      <ul>
-        <li ng-repeat="message in rec.messages">{{message['p']}}:{{message['m']}}</li>
-      </ul>
-    </zf-accordion-item>
-  <div id='calendar'></div>
-  </zf-accordion> -->
 
   <ul style="margin: 0;">
     
@@ -37,7 +20,6 @@ controller: CalendarController
       </a>
 
         <span  zf-modal="" id="{{$index}}" class="tiny dialog">
-
           <a zf-close="{{$index}}"><img src="assets/img/tchalk-close_X_button-navy.svg" height="45" width="30" class="left"></a>
           <p></p>
             <ul class="tc-message">
@@ -45,10 +27,8 @@ controller: CalendarController
                 <span class="tc-kids pc{{message['c']}}">{{message['i']}}</span>
                 <span class="">{{message['m']}}</span>
               </li>
-            </ul> 
-                 
-        </span>  
-
+            </ul>                 
+        </span>
     </li>    
 
   </ul>
@@ -79,23 +59,4 @@ controller: CalendarController
       </span>
     </li>
   </ul>
-
-</section>
-
-
-      <!-- <div >
-        <zf-panel id="quicklook-panel" position="left" ng-controller="QuicklookController as ql">
-          <a zf-close="" class="close-button">CLOSE</a>
-          <p></p>
-          <p id="settings-header">QUICK LOOK CHILD'S SCHEDULE</p>
-          <button ng-click="Test()">show</button>
-          <ul>
-            <li ng-repeat="pup in pupilNames"><a ui-sref="account" zf-close="settings-panel">{{pup}}</a></li>
-            
-          </ul>
-          
-        </zf-panel>
-      </div> -->
-
-  <!-- </div> -->
-<!-- </div> -->
+</div>

@@ -15,22 +15,12 @@
 
     <div class="grid-frame vertical tc-screen" ng-controller="HeadController as hc">
 
-      <!-- <div class="grid-block shrink" style="padding: 0;" > -->
-
-        <!-- <span ng-class="{'hide':accountStatus}">testing 4 {{dj2}}({{accountStatus}}) test"</span> -->
-
-        <div class="shrink title-bar">
-
-          <!-- <li class="tc-spacer" ng-class="{'hide':accountStatus}">
-            <a class="float-left">
-              <i class="tc-icon fa fa-calendar-o"></i>
-            </a>
-          </li> --> 
+        <div class="shrink title-bar"> 
 
           <span class="left" ng-class="{'hide':!accountStatus}">
             <a ui-sref="calendar" class="float-left">
               <img src="assets/img/tchalk-cal-icon-IOS6x29.svg" height="32" width="32">
-              <!-- <i class="tc-icon fa fa-calendar-o"></i> -->
+              
             </a>
           </span class="left">
 
@@ -38,40 +28,25 @@
             <img src="assets/img/tchalk_logo_3col_new_png24.png" height="32">
           </span>
           
-          <!-- <li><a ui-sref="home"><strong>Home</strong></a></li> -->
-          <!-- <li><a ui-sref="login"><strong>Login</strong></a></li> -->
-          <!-- <li><a ui-sref="test"><strong>Test</strong></a></li> -->
-          
-          <!-- <li class="tc-spacer" ng-class="{'hide':accountStatus}">
-            <a  class="float-right" zf-open="settings-panel">
-              <i class="tc-icon fa fa-cog"></i>
-            </a>
-          </li> -->
 
           <span class="right" ng-class="{'hide':!accountStatus}">
             <a  class="float-right" zf-toggle="settings-panel">
-              <img src="assets/img/tchalk-settings-icon-IOS6x29.svg" height="32" width="32">
-              <!-- <i class="tc-icon fa fa-cog"></i> -->
+              <img src="assets/img/tchalk-settings-icon-IOS6x29.svg" height="32" width="32">              
             </a>
           </span>
         </div>
-
       
       <div class="grid-content">
         <div class="grid-container">
           <div ng-class="['ui-animation']" ui-view></div>
         </div>
-      </div>
-     
-      <!-- <div class="grid-block clearfix" style="padding: 0;"> -->
+      </div>     
 
         <div class="shrink title-bar">
 
-          <!-- <div class="center title">Tchalk Tester</div>  -->
-
           <span class="left" ng-class="{'hide':!accountStatus}">
             <a class="" zf-open="quicklook-panel">
-              <!-- <img src="assets/img/tchalk_kids_button.png" class="tc-img-icon"> -->
+
               <img src="assets/img/tchalk-child-icon-IOS6x29.svg" height="32" width="32">
             </a>
           </span> 
@@ -79,7 +54,7 @@
           <span class="right" ng-class="{'hide':!accountStatus}">
             <a  href="#" zf-open="forum-notify" title="Tchalk Forum"  autoclose="3000">
               <img src="assets/img/tchalk-chat-icon-IOS6x29.svg" height="32" width="32">
-              <!-- <i class="tc-icon fa fa-comments"></i> -->
+
             </a>
               <zf-notification-static 
                 class="custom-notification"
@@ -87,8 +62,6 @@
                 title="Tchalk Forum...coming soon..." 
                 autoclose="3000">
               </zf-notification-static>
-
-
           </span>
         </div><!-- /foot -->
 
@@ -109,8 +82,7 @@
             <li><a ui-sref="home" zf-close="settings-panel">
               <img src="assets/img/tchalk-logout-navy.svg" height="60"  class="left">
             </a></li>
-            <!-- <li><a ui-sref="login" zf-close="settings-panel">[login]</a></li>
-            <li><a ui-sref="test" zf-close="settings-panel">[test]</a></li> -->
+
           </ul>            
         </zf-panel><!-- /settings-panel -->
 

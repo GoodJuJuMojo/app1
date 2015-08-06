@@ -15,13 +15,10 @@ controller: HomeworkController
   <span class="tc-hw-class  grid-content">{{class}}</span>
 </div>
 
-
-<section>
 <div class="tc-hw-journal">
   <ul>
     <li ng-repeat="line in journal">
       <span class="tc-hw-subject">{{line.subject}} :</span>
-
         <ul>
           <li ng-repeat="topic in line.topic">
             <span class="tc-hw-topic">{{topic.title}} :</span>
@@ -34,9 +31,5 @@ controller: HomeworkController
         </ul>
         <hr>
     </li>
-
   </ul>
 </div>
-
-</section>
-

@@ -4,40 +4,38 @@ url: /yearview
 controller: YearviewController
 ---
 
+<!-- Based on angular-clndr by 10KB and CLNDR.js by Kyle Stetz -->
+
 <div class="grid-container tc-yearview">
- <!--  <button ng-click="Test('aaa')">yearview</button>
-[1]{{loggedIn}}[2]{{events}}
-<div>{{options}}</div> -->
+
   <tien-clndr class="clndr" tien-clndr-object="clndr" tien-clndr-events="events" tien-clndr-options="options">
 
- <div class="clndr-controls">
-    <div class="clndr-previous-button" ng-click="clndr.back()">
-                              &lsaquo;
+    <div class="clndr-controls">
+        <div class="clndr-previous-button" ng-click="clndr.back()">
+          &lsaquo;
+        </div>
+        <div class="month">
+          {{month | uppercase}} {{year}}
+        </div>
+        <div class="clndr-next-button" ng-click="clndr.forward()">
+          &rsaquo;
+        </div>
     </div>
-    <div class="month">
-      {{month | uppercase}} {{year}}
-    </div>
-    <div class="clndr-next-button" ng-click="clndr.forward()">
-      &rsaquo;
-    </div>
-  </div>
-  <div class="clndr-grid">
-    <div class="days-of-the-week">
-      <div class="header-day" ng-repeat="day in daysOfTheWeek track by $index">
-        {{day}}
+
+    <div class="clndr-grid">
+      <div class="days-of-the-week">
+        <div class="header-day" ng-repeat="day in daysOfTheWeek track by $index">
+          {{day}}
+        </div>
+      </div>
+      <div class="days">
+        <div class="{{day.classes}}" ng-repeat="day in days">
+          <div class="event-indicator" ng-show="day.events.length" ng-click="showEvents(day.events)">{{day.events.length}}</div>
+          {{day.day}}
+        </div>
       </div>
     </div>
-    <div class="days">
-      <div class="{{day.classes}}" ng-repeat="day in days">
-        <div class="event-indicator" ng-show="day.events.length" ng-click="showEvents(day.events)">{{day.events.length}}</div>
-        {{day.day}}
-      </div>
-    </div>
-  </div>
-
-
 
   </tien-clndr>
-
 
 </div>

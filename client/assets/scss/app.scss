@@ -2,18 +2,6 @@
 @import "foundation";
 @import "font-awesome";
 
-/*@font-face {
-	font-family: "yellowsun";
-	src: url('../fonts/dk-lemon-yellow-sun.otf') ;
-}
-*/
-/*
-@font-face {
-	font-family: "moonflower";
-	src: url('../fonts/moonflower-bold.ttf') ;
-}
-*/
-
 @font-face {
 	font-family: "frente";
 	src: url('../fonts/frenteh1-regular.otf') ;
@@ -31,8 +19,6 @@
 
 @font-face {
     font-family: 'foxholeregular';
-    /*src: url('../fonts/../fonts/foxhole-regular-webfont.eot');*/
-    /*src: url('../fonts/foxhole-regular-webfont.eot?#iefix'),*/
     src: url('../fonts/foxhole-regular-webfont.woff2'),
          url('../fonts/foxhole-regular-webfont.woff'),
          url('../fonts/foxhole-regular-webfont.ttf'),
@@ -59,7 +45,6 @@ body {
 .title-bar {
 	background: $grey;
 	border-bottom-style: none;
-	/*padding-left: 10px;*/
 }
 
 .tc-logo {
@@ -87,19 +72,8 @@ body {
 	line-height: 400%;
 }
 
-
-
 .tc-spacer {
 	visibility: hidden;
-}
-
-.tc-landing {
-	/*background-image: url('../img/landing-page-bg-640.png');*/
-	/*background-size: 384px 640px;*/
-}
-
-.tc-landing  {
-	/*list-style: none;*/
 }
 
 .tc-landing {
@@ -219,11 +193,9 @@ body {
 
 
 .tc-daydate {
-	/*font-family: frente;*/
 	color: $yellow-light;
 	justify-content: center;
 	display: inline-flex;
-	/*font-weight: bold;*/
 	width: 2.0rem;
 	height: 2.0rem;
 	padding: 7px;
@@ -251,10 +223,8 @@ body {
 	border-width: 1px;
 	border-bottom-style: solid;
 	list-style: none;
-
 	height: 3.0rem;
-	/*display: inline-flex;*/
-	/*font-size: 1.5em;*/
+
 }
 
 .tc-days a {
@@ -268,10 +238,7 @@ body {
 }
 
 .tc-weeks {
-	/*color: $yellow-light;*/
 	background: $yellow;
-	/*border-width: 1px;*/
-	/*border-bottom-style: solid;*/
 	list-style: none;
 	height: 3.0rem;
 	margin: 0;
@@ -330,15 +297,6 @@ body {
 }
 
 
-/* ? */
-/*ul ul, ol ul {
-  list-style-type: none;
-  color: black;
-}*/
-
-/*.tc-yearview {
-	border: 1px solid $turquoise;
-}*/
 
 .clndr {
 	display: block;
@@ -398,7 +356,7 @@ body {
 }
 
 .clndr .days .day.today, .clndr .days .empty.today {
-	background-color: #ccc; 
+	background-color: $grey; 
 }
 .clndr .days .day .event-indicator, .clndr .days .empty .event-indicator {
 	background-color: red;
