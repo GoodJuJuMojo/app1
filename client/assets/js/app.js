@@ -708,7 +708,7 @@ var kid = $stateParams.kid;
 var childDay = ["MON", "MON", "MON"];
 var childDom = ["20", "20", "20"];
 var childName = ["Aoife Brennan", "Bren Brennan", "Charlie Brennan"];
-var childClass = ["Jr Infants", "Sr Infants", "5th Class"];
+var childClass = ["Jr Infants", "5th Class", "Sr Infants"];
 
 var journal = [
 [
@@ -716,109 +716,69 @@ var journal = [
     topic: [
       {title: "Reading",
         content: [ 
-          {item: "first item"}, 
-          {item: "second item"},
-          {item: "third item"}
+          {item: "Jolly Phonics : Sounds book"}, 
+          {item: "Jolly words : Sound out next 5 words"},
+          {item: "Tricky words : the , she"}
         ]
       },
-      {title: "Learning",
+      {title: "Shared Reading",
         content: [
-          {item: "first item"}, 
-          {item: "second item"},
-          {item: "third item"} 
+          {item: "Nursery Rhyme : Hickory, Dickory, Dock"}, 
+          {item: ""},
+          {item: ""} 
         ]
       }
     ]
-  },
-  {subject: "Irish", 
-    topic: [
-      {title: "Reading",
-        content: [ 
-          {item: "first item"}, 
-          {item: "second item"},
-          {item: "third item"}
-        ]
-      },
-      {title: "Learning",
-        content: [
-          {item: "first item"}, 
-          {item: "second item"},
-          {item: "third item"} 
-        ]
-      }
-    ]
-  },
-  {subject: "Maths", 
-    topic: [
-      {title: "Reading",
-        content: [ 
-          {item: "first item"}, 
-          {item: "second item"},
-          {item: "third item"}
-        ]
-      },
-      {title: "Learning",
-        content: [
-          {item: "first item"}, 
-          {item: "second item"},
-          {item: "third item"} 
-        ]
-      }
-    ]
-    }    
+  }   
   ],
-
  [
   {subject: "English", 
     topic: [
       {title: "Reading",
         content: [ 
-          {item: "first item"}, 
-          {item: "second item"},
-          {item: "third item"}
+          {item: "Class novel Chapters 28 & 29"}
         ]
       },
-      {title: "Learning",
+      {title: "Writing",
         content: [
-          {item: "first item"}, 
-          {item: "second item"},
-          {item: "third item"} 
+          {item: "Adjective activity Treasury pg 37"} 
+        ]
+      },
+      {title: "Spellings",
+        content: [
+          {item: "Unit 4"} 
         ]
       }
     ]
   },
-  {subject: "Irish", 
+  {subject: "Gaeilge", 
     topic: [
-      {title: "Reading",
+      {title: "Fuaimeanna Agus Focail",
         content: [ 
-          {item: "first item"}, 
-          {item: "second item"},
-          {item: "third item"}
+          {item: "Translate 1-8"}
         ]
       },
-      {title: "Learning",
+      {title: "Litriu",
         content: [
-          {item: "first item"}, 
-          {item: "second item"},
-          {item: "third item"} 
+          {item: "Aonad 13 Bosca 2"}
         ]
       }
     ]
   },
   {subject: "Maths", 
     topic: [
-      {title: "Reading",
+      {title: "Planet Maths",
         content: [ 
-          {item: "first item"}, 
-          {item: "second item"},
-          {item: "third item"}
+          {item: "problem solving 1-8"}
         ]
-      },
-      {title: "Learning",
-        content: [
-          {item: "first item"}, 
-          {item: "second item"},
-          {item: "third item"} 
+      }
+    ]
+  },
+  {subject: "SESE", 
+    topic: [
+      {title: "European capitals",
+        content: [ 
+          {item: "First 14 from list"}
         ]
       }
     ]
