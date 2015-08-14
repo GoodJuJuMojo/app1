@@ -19,7 +19,7 @@ controller: CalendarController
         <span ng-repeat="pupil in rec.pupils" class="tc-kids pc{{pupil['c']}}">{{pupil['i']}}</span>
       </a>
 
-        <span  zf-modal="" id="{{$index}}" class="tiny dialog">
+        <span  zf-modal="" id="{{$index}}" class="tiny dialog" zf-swipe-close="up">
           <a zf-close="{{$index}}"><img src="assets/img/tchalk-close_X_button-navy.svg" height="45" width="30" class="left"></a>
           <p></p>
             <ul class="tc-message">

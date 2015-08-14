@@ -40,13 +40,10 @@
     
     FastClick.attach(document.body);
 
-//console.log(document.body.baseURI);
   }
 /***********************************************************************/
 /* Custom app code                                                     */
 
-
-//console.log('...Custom app code');
 
 // records service
 angular.module('application')
@@ -99,27 +96,15 @@ angular.module('application').value('loggedIn', 'xyz');
 angular.module('application').controller('HeadController', ['$rootScope', '$scope', '$timeout', '$stateParams', '$state', '$controller', 'loggedIn', 'accountService', 'recordService', 'eventsService',
   function ($rootScope, $scope, $timeout, $stateParams, $state, $controller, loggedIn, accountService, recordService, eventsService) {
 
-    //console.log('...in HeadController...');
-
     accountService.setAccountStatus("");
-
-    // $scope.accountStatus = accountService.getAccountStatus();
 
     $rootScope.accountStatus = accountService.getAccountStatus();
 
-    console.log('x...in HeadController...');
-
-    $scope.dj = "dominic";
     $scope.Test = function(test) {
-      // console.log('in HeadController', $scope);
-      // console.log(eventsService.getEvents());
-      // console.log($rootScope.pupilNames);
 
     };
 
     $scope.pupilNames = $rootScope.pupilNames;
-    //console.log($scope.pupilNames);
-
 
   }
 
@@ -140,21 +125,10 @@ function HomeController($rootScope, $scope, $stateParams, $state, $controller, l
     $rootScope: $rootScope, $scope: $scope, $stateParams: $stateParams, $state: $state, $loggedIn: loggedIn, $accountService: accountService
     })
   );
-    // console.log('...in HomeController...');
-    // console.log('$scope: ', $scope);
-    // console.log('$rootScope: ', $rootScope);
-    // console.log(loggedIn);
+
     loggedIn = "abc";
-//     $scope.dj1 = loggedIn;
-//     $scope.editMode = true;
-//     console.log('account status:', accountService.getAccountStatus());
-// console.log(loggedIn);
-// $rootScope.roo == "rsrrsrs";
 
     $scope.Home = function(home){
-      // var response = {};
-      // console.log('...in Home...', test);
-      // $scope.showstatus = 'zzzzzzz';
     
     };
  }
@@ -175,17 +149,10 @@ function LoginController($rootScope, $scope, $timeout, $stateParams, $state, $co
       })
   );
 
-// console.log('...in LoginController...');
-// console.log('$stateParams:', $stateParams);
-// console.log('$state:', $state.$current.data.vars.name);
-// console.log('$controller:', $controller);
-// console.log('Logged In?:', loggedIn);
-
-
 accountService.setAccountStatus('calendar');
 
 if ($state.$current.data.vars.name == 'login') {
-  console.log('yup');
+  //console.log('yup');
   $scope.showIcons == 'zzzzzzzzzzzzzzzzzzzzz';
 };
 
@@ -196,13 +163,13 @@ function pupilNames(events) {
   var pupils = [];
   var pn = "";
   for (var prop in events) {
-    //console.log('e: ', events[prop].name);
+
     pn = events[prop].name;
-    //console.log(pn, ' ', pupils.indexOf(pn));
+
     if (pupils.indexOf(pn) == -1) {
-      //console.log('n:', pn);
+
       pupils.push(pn);
-      //console.log('p:', pupils);
+
     }
   }
   return pupils.sort();
@@ -211,18 +178,12 @@ function pupilNames(events) {
 
   $scope.Login = function(username, password, code) {
 
-  
-    
-    // console.log('...in Login...', response);
-    // console.log('login loggedIn:',  loggedIn);
+
     
     loggedIn = false;
-
-    //console.log('Logged In?:', loggedIn);
     
     $scope.showstatus = '';
-    
-    //console.log('u:',username, 'p:',password, 's.u',$scope.username);
+  
     
     if ($scope.username !== 'aaa') {
       $scope.showstatus = 'Invalid Username ';
@@ -233,49 +194,7 @@ function pupilNames(events) {
     };
   
     var serverRecordData = 
-      [      
-        {
-          day: "Mon",
-          dom: "27",
-          pupils: [{"c":"c", "i":"CB"}],
-          messages:[{"c":"c", "i":"CB", "m":"It’s that time of year again & we need your help. The school is running a fundraising day on the 8th of September. We’d love to see you all there  - Fun for all the family."}]
-        },
-        {
-          day: "Tue",
-          dom: "28",
-          pupils: [],
-          messages:[]
-        },
-        {
-          day: "Wed",
-          dom: "29",
-          pupils: [{"c":"c", "i":"CB"}],
-          messages:[{"c":"c", "i":"CB", "m":"School Clean Up Day - Notice to all parents - The school is having its annual spring clean day and we would love volunteers to help out on the day. Please reply with  details and availability"}]
-        },
-        {
-          day: "Thu",
-          dom: "30",
-          pupils: [{"c":"a", "i":"AB"},{"c":"b", "i":"BB"},{"c":"c", "i":"CB"}],
-          messages:[{"c":"a", "i":"AB", "m":"Warning  - We have have a recent outbreak of headlice in our class recently. I would urge all parents to be vigilant and to read the material provided."}, {"c":"b", "i":"BB", "m":"Warning  - We have have a recent outbreak of headlice in our class recently. I would urge all parents to be vigilant and to read the material provided."}, {"c":"c", "i":"CB", "m":"message about"}]
-        },
-        {
-          day: "Fri",
-          dom: "31",
-          pupils: [{"c":"b", "i":"BB"}],
-          messages:[{"c":"b", "i":"BB", "m":"message about"}]
-        },
-        {
-          day: "Sat",
-          dom: "01",
-          pupils: [],
-          messages:[]
-        },
-        {
-          day: "Sun",
-          dom: "02",
-          pupils: [],
-          messages:[]
-        },
+      [        
         {
           day: "Mon",
           dom: "03",
@@ -297,14 +216,14 @@ function pupilNames(events) {
         {
           day: "Thu",
           dom: "06",
-          pupils: [{"c":"a", "i":"AB"},{"c":"b", "i":"BB"},{"c":"c", "i":"CB"}],
-          messages:[{"c":"a", "i":"AB", "m":"Warning  - We have have a recent outbreak of headlice in our class recently. I would urge all parents to be vigilant and to read the material provided."}, {"c":"b", "i":"BB", "m":"Warning  - We have have a recent outbreak of headlice in our class recently. I would urge all parents to be vigilant and to read the material provided."}, {"c":"c", "i":"CB", "m":"message about"}]
+          pupils: [{"c":"a", "i":"AB"},{"c":"b", "i":"BB"}],
+          messages:[{"c":"a", "i":"AB", "m":"Warning  - We have have a recent outbreak of headlice in our class recently. I would urge all parents to be vigilant and to read the material provided."}, {"c":"b", "i":"BB", "m":"Warning  - We have have a recent outbreak of headlice in our class recently. I would urge all parents to be vigilant and to read the material provided."}]
         },
         {
           day: "Fri",
           dom: "07",
           pupils: [{"c":"b", "i":"BB"}],
-          messages:[{"c":"b", "i":"BB", "m":"message about"}]
+          messages:[{"c":"b", "i":"BB", "m":"Art class today"}]
         },
         {
           day: "Sat",
@@ -322,7 +241,7 @@ function pupilNames(events) {
           day: "Mon",
           dom: "10",
           pupils: [{"c":"b", "i":"BB"},{"c":"c", "i":"CB"}],
-          messages:[{"c":"b", "i":"BB", "m":"message about"},{"c":"c", "i":"CB", "m":"Field Trip  - Update - There has been a bad weather warning for next monday, so can all pupils be reminded to bring light rain gear in preparation."}]
+          messages:[{"c":"b", "i":"BB", "m":"School Clean Up Day - Notice to all parents - The school is having its annual spring clean day and we would love volunteers to help out on the day. Please reply with  details and availability"},{"c":"c", "i":"CB", "m":"Field Trip  - Update - There has been a bad weather warning for next monday, so can all pupils be reminded to bring light rain gear in preparation."}]
         },
         {
           day: "Tue",
@@ -346,7 +265,7 @@ function pupilNames(events) {
           day: "Fri",
           dom: "14",
           pupils: [{"c":"a", "i":"AB"},{"c":"b", "i":"BB"},{"c":"c", "i":"CB"}],
-          messages:[{"c":"a", "i":"AB", "m":"Healthy eating policy in effect. Can all parents please ensure that lunches contain healthy options."}, {"c":"b", "i":"BB", "m":""}, {"c":"c", "i":"CB", "m":"Hi, I have noticed some disruptive behaviour over the last few weeks and i’d like a chance to discuss it. "}]
+          messages:[{"c":"a", "i":"AB", "m":"Healthy eating policy in effect. Can all parents please ensure that lunches contain healthy options."}, {"c":"b", "i":"BB", "m":"Art class today"}, {"c":"c", "i":"CB", "m":"Hi, I have noticed some disruptive behaviour over the last few weeks and i’d like a chance to discuss it. "}]
         },
         {
           day: "Sat",
@@ -364,19 +283,19 @@ function pupilNames(events) {
           day: "Mon",
           dom: "17",
           pupils: [{"c":"b", "i":"BB"},{"c":"c", "i":"CB"}],
-          messages:[{"c":"b", "i":"BB", "m":"message about"}, {"c":"c", "i":"CB", "m":"Parent/Teacher meeting taking place on the 16th. Please confirm availability."}]
+          messages:[{"c":"b", "i":"BB", "m":"Parent/Teacher meeting taking place on the 19th. Please confirm availability."}, {"c":"c", "i":"CB", "m":"Parent/Teacher meeting taking place on the 20th. Please confirm availability."}]
         },
         {
           day: "Tue",
           dom: "18",
-          pupils: [{"c":"a", "i":"AB"},{"c":"b", "i":"BB"}],
-          messages:[{"c":"a", "i":"AB", "m":"message about"}, {"c":"b", "i":"BB", "m":"message about"}]
+          pupils: [{"c":"c", "i":"CB"}],
+          messages:[{"c":"c", "i":"CB", "m":"School Clean Up Day - Notice to all parents - The school is having its annual spring clean day and we would love volunteers to help out on the day. Please reply with  details and availability"}]
         },
         {
           day: "Wed",
           dom: "19",
           pupils: [{"c":"c", "i":"CB"}],
-          messages:[{"c":"c", "i":"CB", "m":"message about"}]
+          messages:[{"c":"c", "i":"CB", "m":"It’s that time of year again & we need your help. The school is running a fundraising day on the 8th of September. We’d love to see you all there  - Fun for all the family."}]
         },
         {
           day: "Thu",
@@ -388,7 +307,7 @@ function pupilNames(events) {
           day: "Fri",
           dom: "21",
           pupils: [{"c":"b", "i":"BB"}],
-          messages:[{"c":"b", "i":"BB", "m":"message about"}]
+          messages:[{"c":"b", "i":"BB", "m":"Parent/Teacher meeting taking place on the 25th. Please confirm availability."}]
         },
         {
           day: "Sat",
@@ -406,30 +325,23 @@ function pupilNames(events) {
     recordService.setRecordData(serverRecordData); 
     
 
-    var serverEvents = 
-      [
-        { date: "2015-07-20", dateEnd: "", name: "Charlie Brennan", initials: "CB", class: "Sr Infants", type: "HW", subject: "English", title: "Essay on Nonsense", content:"300 words", note:"", link: "", image: ""},
-        { date: "2015-07-20", dateEnd: "", name: "Charlie Brennan", initials: "CB", class: "Sr Infants", type: "HW", subject: "Irish", title: "Essay on Nonsense", content:"300 words", note:"", link: "", image: ""},
-        { date: "2015-07-20", dateEnd: "", name: "Charlie Brennan", initials: "CB", class: "Sr Infants", type: "HW", subject: "Maths", title: "Essay on Nonsense", content:"300 words", note:"", link: "", image: ""},
-        { date: "2015-07-20", dateEnd: "", name: "Alice Brennan", initials: "AB", class: "Sr Infants", type: "HW", subject: "English", title: "Essay on Nonsense", content:"300 words", note:"", link: "", image: ""},
-        { date: "2015-07-20", dateEnd: "", name: "Charlie Brennan", initials: "CB", class: "Sr Infants", type: "HW", subject: "English", title: "Essay on Nonsense", content:"300 words", note:"", link: "", image: ""},
-        { date: "2015-07-20", dateEnd: "", name: "Charlie Brennan", initials: "CB", class: "Sr Infants", type: "HW", subject: "English", title: "Essay on Nonsense", content:"300 words", note:"", link: "", image: ""},
-        { date: "2015-07-20", dateEnd: "", name: "Charlie Brennan", initials: "CB", class: "Sr Infants", type: "HW", subject: "English", title: "Essay on Nonsense", content:"300 words", note:"", link: "", image: ""},
-        { date: "2015-07-20", dateEnd: "", name: "Charlie Brennan", initials: "CB", class: "Sr Infants", type: "HW", subject: "English", title: "Essay on Nonsense", content:"300 words", note:"", link: "", image: ""},
-        { date: "2015-07-20", dateEnd: "", name: "Charlie Brennan", initials: "CB", class: "Sr Infants", type: "HW", subject: "English", title: "Essay on Nonsense", content:"300 words", note:"", link: "", image: ""},
-        { date: "2015-07-20", dateEnd: "", name: "Charlie Brennan", initials: "CB", class: "Sr Infants", type: "HW", subject: "English", title: "Essay on Nonsense", content:"300 words", note:"", link: "", image: ""},
-        { date: "2015-07-20", dateEnd: "", name: "Charlie Brennan", initials: "CB", class: "Sr Infants", type: "HW", subject: "English", title: "Essay on Nonsense", content:"300 words", note:"", link: "", image: ""},
-        { date: "2015-07-20", dateEnd: "", name: "Charlie Brennan", initials: "CB", class: "Sr Infants", type: "HW", subject: "English", title: "Essay on Nonsense", content:"300 words", note:"", link: "", image: ""}
-      ];
-
-
-      
-
-
-    eventsService.setEvents(serverEvents);
-
-    console.log('pupils:', pupilNames(serverEvents));
-    $rootScope.pupilNames = pupilNames(serverEvents);
+    // var serverEvents = 
+    //   [
+    //     { date: "2015-07-20", dateEnd: "", name: "Charlie Brennan", initials: "CB", class: "Sr Infants", type: "HW", subject: "English", title: "Essay on Nonsense", content:"300 words", note:"", link: "", image: ""},
+    //     { date: "2015-07-20", dateEnd: "", name: "Charlie Brennan", initials: "CB", class: "Sr Infants", type: "HW", subject: "Irish", title: "Essay on Nonsense", content:"300 words", note:"", link: "", image: ""},
+    //     { date: "2015-07-20", dateEnd: "", name: "Charlie Brennan", initials: "CB", class: "Sr Infants", type: "HW", subject: "Maths", title: "Essay on Nonsense", content:"300 words", note:"", link: "", image: ""},
+    //     { date: "2015-07-20", dateEnd: "", name: "Alice Brennan", initials: "AB", class: "Sr Infants", type: "HW", subject: "English", title: "Essay on Nonsense", content:"300 words", note:"", link: "", image: ""},
+    //     { date: "2015-07-20", dateEnd: "", name: "Charlie Brennan", initials: "CB", class: "Sr Infants", type: "HW", subject: "English", title: "Essay on Nonsense", content:"300 words", note:"", link: "", image: ""},
+    //     { date: "2015-07-20", dateEnd: "", name: "Charlie Brennan", initials: "CB", class: "Sr Infants", type: "HW", subject: "English", title: "Essay on Nonsense", content:"300 words", note:"", link: "", image: ""},
+    //     { date: "2015-07-20", dateEnd: "", name: "Charlie Brennan", initials: "CB", class: "Sr Infants", type: "HW", subject: "English", title: "Essay on Nonsense", content:"300 words", note:"", link: "", image: ""},
+    //     { date: "2015-07-20", dateEnd: "", name: "Charlie Brennan", initials: "CB", class: "Sr Infants", type: "HW", subject: "English", title: "Essay on Nonsense", content:"300 words", note:"", link: "", image: ""},
+    //     { date: "2015-07-20", dateEnd: "", name: "Charlie Brennan", initials: "CB", class: "Sr Infants", type: "HW", subject: "English", title: "Essay on Nonsense", content:"300 words", note:"", link: "", image: ""},
+    //     { date: "2015-07-20", dateEnd: "", name: "Charlie Brennan", initials: "CB", class: "Sr Infants", type: "HW", subject: "English", title: "Essay on Nonsense", content:"300 words", note:"", link: "", image: ""},
+    //     { date: "2015-07-20", dateEnd: "", name: "Charlie Brennan", initials: "CB", class: "Sr Infants", type: "HW", subject: "English", title: "Essay on Nonsense", content:"300 words", note:"", link: "", image: ""},
+    //     { date: "2015-07-20", dateEnd: "", name: "Charlie Brennan", initials: "CB", class: "Sr Infants", type: "HW", subject: "English", title: "Essay on Nonsense", content:"300 words", note:"", link: "", image: ""}
+    //   ];
+    // eventsService.setEvents(serverEvents);
+    // $rootScope.pupilNames = pupilNames(serverEvents);
 
     accountService.setAccountStatus("y");
     $rootScope.accountStatus = accountService.getAccountStatus();
@@ -438,14 +350,13 @@ function pupilNames(events) {
 
   $scope.Register = function(name, username, password, confpassword) {
     
-    console.log('...in LoginController.Register...');
     loggedIn = false;
     $state.go('calendar');  // test
   };
 
 
   $scope.Test = function(test) {
-    console.log('in LoginController.Test()');     
+        
   };
 
 }
@@ -454,33 +365,7 @@ function pupilNames(events) {
 /***********************************************************************/
 
 
-/***********************************************************************/
-/* Register Controller                                                 */
 
-// angular.module('application').controller('RegisterController', RegisterController);
-// RegisterController.$inject = ['$scope', '$stateParams', '$state', '$controller'];
-// function RegisterController($scope, $stateParams, $state, $controller) {
-//   angular.extend(this, $controller('DefaultController', {
-//       $scope: $scope, $stateParams: $stateParams, $state: $state
-//       })
-//   );
-//   $scope.Register = function(username, password, code){
-//     // var response = {};
-//     // console.log('...in Register...', response);
-//     $scope.showstatus = '';
-//     console.log('u:',username, 'p:',password, 's.u',$scope.username);
-//     if ($scope.username !== 'aaa') {
-//       $scope.showstatus = 'Invalid Username ';
-//     }
-//     if ($scope.password !== 'bbb') {
-//       $scope.showstatus += ' Invalid Password';
-//     }
-
-//   };
-// }
-
-/* End Register Controller                                             */
-/***********************************************************************/
 
 
 
@@ -496,36 +381,29 @@ function CalendarController($scope, $rootScope, $timeout, $stateParams, $state, 
   );
       
   $rootScope.accountStatus = accountService.getAccountStatus();
-
   $scope.accountStatus = accountService.getAccountStatus();
-
-  // console.log('...in CalendarController...');
-  // console.log($scope);
-  // console.log('s:', $scope.accountStatus);
-  // console.log('rs:', $rootScope.accountStatus);
 
   if(!$scope.accountStatus) {
     $state.go('home');
   }
 
-  //$scope.editMode = false;
-  //$scope.today=(moment().format("D"));
+
 
   var now = new Date();
   $scope.today = now.getDate();
 
-  //console.log('$scope.today: ', $scope.today);
 
   var records = recordService.getRecordData();
 
+// mon-fri
   var recordsPrev = records.slice(0, 5);
   var recordsCurr = records.slice(7, 12);
   var recordsNext = records.slice(14, 19);
+// mon-sun
   var recordsPrevWeek = records.slice(0, 7);
   var recordsCurrWeek = records.slice(7, 14);
   var recordsNextWeek = records.slice(14, 21);
 
-  //console.log($scope.recordsCurr);
 
   $scope.records = recordsCurr;
   $scope.weekA = recordsPrevWeek;
@@ -535,47 +413,20 @@ function CalendarController($scope, $rootScope, $timeout, $stateParams, $state, 
   $scope.disableCurr = "y";
   $scope.disableNext = "";    
 
-  $scope.Calendar = function(Calendar){
-    console.log('prev=',recordsPrev);
+  $scope.Calendar = function(Calendar) {
+    
     $scope.records = recordsPrev;
-
     var response = {};
-    //var now = moment();
-    console.log('...in Calendar...', Calendar);
-    // console.log($scope.records["2015-08-17"][0]["message"]);
     $scope.showstatus = 'zzzzzzz';
-    // console.log('date=', moment().date());
-    // console.log(moment(now).format("ddd"));
-    // console.log(moment(now).daysInMonth());  //no. days in month
-    // var dim = moment(now).daysInMonth();
-    // console.log('dim=', dim);
-    //console.log('d:', moment().weekday(moment().day()));
-    //console.log('moment:d:', moment().format("D"));
     
     var now = new Date();
-    
-    console.log('js:d:',now.getDate());
-
-    var monthDays = [];
-    // for (var i = 0; i <= dim - 1; i++) {
-    //   monthDays[i] =  (i + 1);
-    // };
-
-    //console.log(monthDays[dim -1]);
-    
-    var dayRecords = {};
-    
-    // for (var i = 0; i <= dim -1; i++) {
-    //   monthDays['dow'] = {
-    //     'day': i
-    //   };
-    // }
-    //console.log(toString(dayRecords.dow));
+    var monthDays = [];    
+    var dayRecords = {};    
 
   };
 
   $scope.prevWeek = function() {
-    console.log('...in prevWeek...');
+
     $scope.disablePrev = "y";
     $scope.disableCurr = "";
     $scope.disableNext = "";
@@ -586,7 +437,7 @@ function CalendarController($scope, $rootScope, $timeout, $stateParams, $state, 
   };
 
   $scope.currWeek = function() {
-    console.log('...in currWeek...');
+
     $scope.disablePrev = "";
     $scope.disableCurr = "y";
     $scope.disableNext = "";
@@ -597,7 +448,7 @@ function CalendarController($scope, $rootScope, $timeout, $stateParams, $state, 
   };
 
   $scope.nextWeek = function() {
-    console.log('...in nextWeek...');
+
     $scope.disablePrev = "";
     $scope.disableCurr = "";
     $scope.disableNext = "y";
@@ -606,12 +457,6 @@ function CalendarController($scope, $rootScope, $timeout, $stateParams, $state, 
     $scope.weekB = recordsCurrWeek;
     $scope.weekC = recordsNextWeek;      
   };
-
-
-
-  // $scope.Test = function(test) {
-  //     console.log('in CalendarController');
-  //   };
 
 }
 
@@ -630,8 +475,7 @@ function YearviewController($scope, $stateParams, $state, $controller, loggedIn,
     $scope: $scope, $stateParams: $stateParams, $state: $state, $loggedIn: loggedIn, $recordService: recordService
     })
   );
-
-  //$scope.editMode = false;    
+    
 
   $scope.options = {
     weekOffset: 1,
@@ -642,7 +486,6 @@ function YearviewController($scope, $stateParams, $state, $controller, loggedIn,
     }
   };
 
-  //console.log(moment());
 
 
   $scope.events = [
@@ -672,16 +515,11 @@ function YearviewController($scope, $stateParams, $state, $controller, loggedIn,
       alert(events.map(function(e) { return e.name + ":" + e.title }).join("\n"));
   };
 
-  $scope.Test = function(test){
-        console.log('in TestController loggedIn:', loggedIn );
-        
-        var response = {};
-        loggedIn = 'new value';
-        console.log('...in Test...', test, loggedIn);
-        console.log(recordService.getRecordData());
-        $scope.showstatus = 'zzzzzzz';
-        console.log($scope.events);
-      
+  $scope.Test = function(test) {
+    var response = {};
+    loggedIn = 'new value';
+    $scope.showstatus = 'zzzzzzz';
+     
   };
 
 }
@@ -702,8 +540,6 @@ function HomeworkController($scope, $stateParams, $state, $controller) {
     })
   );
 
-
-console.log($stateParams.kid);
 var kid = $stateParams.kid;    
 var childDay = ["MON", "MON", "MON"];
 var childDom = ["20", "20", "20"];
@@ -835,7 +671,7 @@ var journal = [
 ]
 
 $scope.journal = journal[kid];
-//console.log($scope.journal[kid]);
+
 $scope.day = childDay[kid];
 $scope.dom = childDom[kid];
 $scope.name = childName[kid];
@@ -848,8 +684,6 @@ $scope.class = childClass[kid];
     $scope.name = childName[child];
     $scope.class = childClass[child];
 
-    // console.log('...in Homework...Test...', Homework3);
-    // $scope.showstatus = 'zzzzzzz';
 
   };
 
@@ -870,14 +704,6 @@ function SettingsController($scope, $stateParams, $state, $controller) {
     })
   );
 
-  // $scope.editMode = false;    
-
-  // $scope.Settings = function(Settings3){
-  //   var response = {};
-  //   console.log('...in Settings...', Settings3);
-  //   $scope.showstatus = 'zzzzzzz';
-
-  // };
 
 }
 
@@ -898,13 +724,6 @@ function AccountController($scope, $stateParams, $state, $controller, loggedIn, 
 
     
   $scope.Save = function(test){
-    // console.log('in AccountController loggedIn:', loggedIn );
-    
-    // var response = {};
-    // loggedIn = 'new value';
-    // console.log('...in Account.Save...', test, loggedIn);
-    // console.log(recordService.getRecordData());
-    // $scope.showstatus = 'zzzzzzz';
   
   };
 }
@@ -924,12 +743,6 @@ function FaqController($scope, $stateParams, $state, $controller, loggedIn, reco
     })
   );
     
-  // $scope.Test = function(test) {
-  //   console.log('in FaqController loggedIn:', loggedIn );
-  //   var response = {};
-  //   loggedIn = 'new value';
-  //   console.log('...in Faq.Save...', test, loggedIn);  
-  // };
 
 }
 
@@ -948,18 +761,11 @@ function AboutController($scope, $stateParams, $state, $controller, loggedIn, re
     })
   );
     
-  // $scope.Test = function(test) {
-  //   console.log('in AboutController loggedIn:', loggedIn );
-  //   var response = {};
-  //   loggedIn = 'new value';
-  //   console.log('...in About.Save...', test, loggedIn);  
-  // };
 
 }
 
 /* End About Controller                                                */
 /***********************************************************************/
-
 
 
 
@@ -974,12 +780,6 @@ function TchalkbackController($scope, $stateParams, $state, $controller, loggedI
     })
   );
     
-  // $scope.Test = function(test) {
-  //   //console.log('in TchalkbackController loggedIn:', loggedIn );
-  //   var response = {};
-  //   loggedIn = 'new value';
-  //   //console.log('...in Tchalkback.Save...', test, loggedIn);  
-  // };
 
 }
 
@@ -993,21 +793,12 @@ function TchalkbackController($scope, $stateParams, $state, $controller, loggedI
 angular.module('application').controller('QuicklookController', ['$rootScope', '$scope', '$timeout', '$stateParams', '$state', '$controller', 'loggedIn', 'accountService' ,
   function ($rootScope, $scope, $timeout, $stateParams, $state, $controller, loggedIn, accountService) {
 
-    //console.log('...in QuicklookController...');
-
     accountService.setAccountStatus("");
-
-    // $scope.accountStatus = accountService.getAccountStatus();
-
     $rootScope.accountStatus = accountService.getAccountStatus();
 
-    //console.log('x...in QuicklookController...');
-
     $scope.Test = function(test) {
-      console.log('in QuicklookController Test:', $scope.pupilNames, $rootScope.pupilNames );
+
     };
-
-
 
 }
     
