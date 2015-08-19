@@ -1,0 +1,25 @@
+INSTALLATION AND BUILD INSTRUCTIONS
+==================
+
+Installation
+
+	Foundation for apps standard install
+		http://foundation.zurb.com/apps/docs/#!/installation
+
+
+	Install CLNDR.js and dependencies (jQuery and Moment)
+		CLNDR.js (http://kylestetz.github.io/CLNDR)
+			Moment.js (http://momentjs.com)
+			jQuery.js (http://jquery.com)
+
+
+Build 
+
+	Command = 	foundation-apps watch
+
+	A modified 'gulp' file will build the 'client' into 'build' folder
+		(app1/gulpfile.js) and run app in default browser with LiveReload
+
+	The contents of 'build' folder is copied to webserver.
+
+--- end ---

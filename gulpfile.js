@@ -50,12 +50,6 @@ var paths = {
     'bower_components/underscore/underscore-min.js',
     'bower_components/moment/min/moment.min.js',
     'bower_components/clndr/src/clndr.js',
-    //'bower_components/angular-clndr/angular-clndr.js',
-    //'bower_components/angular-clndr/angular-clndr.min.js', //min version
-    // Client folder equiv
-    //'client/assets/js/jquery.min.js',
-    //'client/assets/js/moment.min.js',
-    // 'client/assets/js/fullcalendar.js',
     'client/assets/js/angular-clndr.js', //modified
     // App
     'client/assets/js/app.js'

@@ -31,7 +31,7 @@
           options = angular.extend($scope.options || {}, {
             render: render
           });
-          angular.element.prototype.clndr = $.fn.clndr;
+          angular.element.prototype.clndr = $.fn.clndr; // Good Juju - mod to avoid type error
           return $scope.clndr = angular.element("<div/>").clndr(options);
         });
       }
