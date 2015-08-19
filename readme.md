@@ -17,7 +17,7 @@ You'll need the following software installed to get started.
 Clone this repository, where `app` is the name of your app.
 
 ```bash
-git clone https://github.com/zurb/foundation-apps-template.git app
+git clone https://github.com/GoodJuJuMojo/app1.git
 ```
 
 Change into the directory.
